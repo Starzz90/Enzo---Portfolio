@@ -27,13 +27,17 @@ body {
   font-weight: 480;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   flex-grow: 1;
-  zoom: 0.8;
+}
+@media(max-width: 768px){
+  body{
+    zoom: 0.8;
+  }
 }
 .html {
   scroll-behavior: smooth;

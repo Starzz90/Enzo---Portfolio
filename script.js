@@ -38,7 +38,7 @@ if(exp){
 function Retur() {
     window.location.href = "index.html";
 };
-function Code(){
+function Cod(){
     window.location.href = "coding.html";
 };
 function Experience(){

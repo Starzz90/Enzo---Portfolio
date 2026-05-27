@@ -556,7 +556,7 @@ h1 {
   font-weight: bolder;
 }
 .used{
-  background-color: var(--highlight-dim);
+  background-color: var(--achievement);
   border-radius: 20px;
   width: 100%;
   height: fit-content;

@@ -97,6 +97,7 @@ body {
 .contain {
   width: 100%;
   max-width: 1350px;
+  height: auto;
   padding: 0 40px;
   margin: 20px auto;
   box-sizing: border-box;
@@ -111,11 +112,10 @@ body {
     width: auto;
     height: auto;
     margin: auto;
-    margin-left: 0;
-    margin-right: 0;
     padding: none;
     flex-direction: column;
     flex-wrap: wrap;
+   overflow-wrap: break-word;
   }
 }
 .column{

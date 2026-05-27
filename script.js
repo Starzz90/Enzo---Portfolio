@@ -29,12 +29,6 @@ if(home){
         window.location.href = "index.html";
     })
 };
-var Code = document.getElementById("ll-code-t");
-if(Code){
-    Code.addEventListener("click", function(e){
-        window.location.href = "coding.html";
-    })
-};
 var exp = document.getElementById('ll-exp-t');
 if(exp){
     exp.addEventListener("click", function(e){

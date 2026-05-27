@@ -113,7 +113,9 @@ body {
     margin: auto;
     margin-left: 0;
     margin-right: 0;
-    padding: 0 10px;
+    padding: none;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 .column{

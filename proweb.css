@@ -16,6 +16,7 @@
   --shadow: #585858;
   --achievement: #434343;
   --sidebar: rgba(255, 255, 255, 0.071);
+  --work-content: rgba(219, 219, 219, 0.811);
 }
 body {
   background-color: var(--background-color);
@@ -332,15 +333,44 @@ h1 {
   background-color: var(--cards);
   margin-left: 10px;
   border: 3px solid var(--cards-above);
-  border-radius: 20px;
-  padding: 2px 20px;
+  padding: 20px 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 30px;
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
+  border-bottom: 8px solid var(--cards-above-tools);
+}
+.cert{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 25px;
+  font-family: "Jetbrains Mono", monospace;
+}
+.tag{
+  color: var(--achievement);
+  font-size: 20px;
+}
+.cert-tag{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.cert-tag-BOTTOM{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.work-content{
+  color: var(--work-content);
+  font-size: 15px;
+  font-family: "Jetbrains Mono", Monospace;
 }
 @media(max-width: 768px){
   .specs-card{

@@ -35,9 +35,18 @@ if(Code){
         window.location.href = "coding.html";
     })
 };
+var exp = document.getElementById('ll-exp-t');
+if(exp){
+    exp.addEventListener("click", function(e){
+        window.location.href = "experience.html";
+    })
+};
 function Retur() {
     window.location.href = "index.html";
 };
 function Code(){
     window.location.href = "coding.html";
+};
+function Experience(){
+    window.location.href = "experience.html";
 };

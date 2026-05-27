@@ -380,19 +380,17 @@ h1 {
   background-color: transparent;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 30px;
   border: 3px solid transparent;
   max-height: 400px;
   overflow-y: auto;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  margin: 30px 10px;
   width: auto;
 }
 @media(max-width: 768px){
   .group{
-    max-width: 450px;
     display: flex;
     flex-grow: 1;
 
@@ -521,6 +519,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   letter-spacing: 2px;
+  flex-grow: 1;
 }
 .used:hover{
   background-color: var(--color-change);

@@ -359,7 +359,7 @@ h1 {
 }
 @media(max-width: 768px){
   .tag{
-    font-size: 15px;
+    font-size: 11px;
   }
 }
 .cert-tag{

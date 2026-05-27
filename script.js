@@ -35,6 +35,15 @@ if(exp){
         window.location.href = "experience.html";
     })
 };
+var Eng = document.getElementById('ll-eng');
+if(Eng){
+    Eng.addEventListener("click", function(e){
+        window.location.href = "engineering.html";
+    })
+};
+function Engineering() {
+    window.location.href = "engineering.html";
+}
 function Retur() {
     window.location.href = "index.html";
 };

@@ -2,6 +2,7 @@
   --background-color: #030303;
   --header: #ecfeff;
   --cards: #13141562;
+  --name: #000000c5;
   --cards-above: #343434;
   --cards-above-tools: #3d3d3d;
   --outline: rgba(186, 186, 186, 0.3);
@@ -15,6 +16,7 @@
   --image-container-hover: rgba(105, 105, 105, 0.347);
   --shadow: #585858;
   --achievement: #434343;
+  --project-card: rgba(82, 82, 82, 0.811);
   --sidebar: rgba(255, 255, 255, 0.071);
   --work-content: rgba(219, 219, 219, 0.811);
   --cert: rgb(255, 123, 0);
@@ -56,7 +58,7 @@ body {
   display: flex;
   top: 10px;
   bottom: 0;
-  padding: 10px 30px;
+  padding: 5px 30px;
   border: 2px solid transparent;
   border-radius: 50px;
   z-index: 100000;
@@ -308,15 +310,32 @@ h1 {
   justify-content: center;
 }
 .Project-card{
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   margin-top: 30px;
+  width: auto;
   height: auto;
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  border: 5px solid transparent;
+  border: 5px solid var(--project-card);
+  max-height: 500px;
+  position: relative;
+}
+.project-img{
+  object-fit: cover;
+  max-height: 290px;
+}
+.section-engineer{
+  width: 100%;
+  border: 2px solid var(--cards-above);
+  padding: 5px 20px;
+  margin-right: 20px;
+}
+h2.Engine{
+  font-family: "Jetbrains Mono", monospace;
+  font-size: 30px;
+  font-weight: 900;
 }
 .specs-card{
   background-color: var(--cards);
@@ -414,8 +433,9 @@ h1 {
   justify-content: center;
 }
 .Project-desc{
-  background-color: var(--cards);
+  background-color: var(--name);
   height: auto;
+  max-height: auto;
   width: 100%;
   padding: 0 10px;
   padding-bottom: 10px;
@@ -428,6 +448,8 @@ h1 {
   flex-wrap: wrap;
   font-size: 15px;
   gap: 10px;
+  flex-grow: 1;
+  position: absolute;
 }
 .project{
   width: 100%;
@@ -879,7 +901,7 @@ li.achieve{
 .project-name{
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 5px;
   display: flex;
   flex-wrap: wrap;

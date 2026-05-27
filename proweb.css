@@ -33,10 +33,14 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   flex-grow: 1;
-  transform: scale(0.9);
-  transform-origin: top left;
-  width: 125%;
-  height: 125%;
+}
+@media(max-width: 550px){
+  body{
+    transform: scale(0.9);
+    transform-origin: top left;
+    width: 125%;
+    height: 125%;
+  }
 }
 .html {
   scroll-behavior: smooth;

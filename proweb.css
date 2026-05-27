@@ -118,7 +118,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 @media(max-width: 768px){
   .contain{
@@ -340,6 +340,7 @@ h1 {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: 30px;
 }
 @media(max-width: 768px){
   .specs-card{

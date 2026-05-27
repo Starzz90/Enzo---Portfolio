@@ -106,6 +106,12 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
 }
+@media(max-width: 768px){
+  .contain{
+    width: auto;
+    height: auto;
+  }
+}
 .column{
   display: flex;
   flex-direction: column;
@@ -249,6 +255,8 @@ h1 {
   border-left: 4px solid var(--highlight);
   padding-bottom: 10px;
   background-size: contain;
+  width: auto;
+  height: auto;
 }
 .tools-card {
   background-color: var(--cards);

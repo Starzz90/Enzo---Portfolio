@@ -378,7 +378,9 @@ h2.Engine{
 }
 .tag{
   color: var(--achievement);
-  font-size: 20px;
+  font-size: 15px;
+  font-family: "Jetbrains Mono", monospace;
+  width: 300px;
 }
 @media(max-width: 768px){
   .tag{

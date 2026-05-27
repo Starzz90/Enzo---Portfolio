@@ -33,7 +33,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   flex-grow: 1;
-  zoom: 1;
+  zoom: 0.8;
 }
 .html {
   scroll-behavior: smooth;

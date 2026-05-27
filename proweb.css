@@ -850,6 +850,7 @@ a{
   height: 50px;
   background-color: var(--highlight);
   margin-top: 80px;
+  overflow-y: clip;
 }
 .year{
   color:#ffddd6;

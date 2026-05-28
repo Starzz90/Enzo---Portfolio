@@ -365,6 +365,14 @@ h2.Engine{
   flex-direction: column;
   border-bottom: 8px solid var(--cards-above-tools);
 }
+@media(max-width: 768px){
+  .work-card{
+    flex-shrink: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
 .work-card:hover{
   box-shadow: var(--color-change) 0px 4px 6px;
   animation: glow 2s infinite; 

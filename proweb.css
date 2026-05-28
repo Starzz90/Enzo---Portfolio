@@ -124,6 +124,8 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 40px;
+  
 }
 @media(max-width: 768px){
   .contain{

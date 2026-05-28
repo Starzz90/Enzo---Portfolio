@@ -39,14 +39,6 @@ body {
   flex-grow: 1;
   flex: 1;
 }
-@media(max-width: 550px){
-  body{
-    transform: scale(0.8);
-    transform-origin: top left;
-    width: 125%;
-    height: 125%;
-  }
-}
 .html {
   scroll-behavior: smooth;
 }

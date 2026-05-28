@@ -908,17 +908,23 @@ li.achieve{
 .project-name{
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  flex-direction: column;
 }
 .project-data{
   font-size: 15px;
   color:rgba(255, 255, 255, 0.5);
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 5px;
+  padding: 0px 5px;
+  opacity: 1;
+  padding-top: 5px;
 }
 .xampp{
   width: 150px;

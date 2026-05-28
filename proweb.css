@@ -125,7 +125,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
-  
+
 }
 @media(max-width: 768px){
   .contain{
@@ -164,7 +164,7 @@ body {
 .triple-column{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: repeat(minmax(300px, 1fr));
+  grid-auto-columns: repeat(minmax(200px, 1fr));
   gap: 20px;
   margin-bottom: 5px;
 }

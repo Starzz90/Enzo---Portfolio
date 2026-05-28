@@ -39,7 +39,8 @@ body {
   flex-wrap: wrap;
   flex-grow: 1;
   flex: 1;
-  background-position: center;
+  position: center;
+  size: cover;
 }
 .html {
   scroll-behavior: smooth;
@@ -121,6 +122,7 @@ body {
   margin-bottom: 40px;
 
 }
+
 @media(max-width: 768px){
   .contain{
     width: auto;
@@ -129,6 +131,7 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     overflow-wrap: break-word;
+    max-width: 550px;
   }
 }
 .column{

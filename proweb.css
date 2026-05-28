@@ -31,6 +31,7 @@ body {
   font-weight: 480;
   margin: 0;
   padding: 0;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;

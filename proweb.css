@@ -111,16 +111,17 @@ body {
   width: 100%;
   max-width: 1350px;
   height: auto;
-  padding: 10px 40px;
+  padding: 10px 30px;
   margin: auto;
   box-sizing: border-box;
   overflow: hidden;
-  margin-right: 10px;
+  margin-right: 0px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
+  padding-left: 20px;
 
 }
 
@@ -379,6 +380,9 @@ h2.Engine{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    margin-right: min(10%, 500px);
+    max-width: 500px;
+    max-height: 400px;
   }
 }
 .work-card:hover{
@@ -399,6 +403,8 @@ h2.Engine{
   font-size: 15px;
   font-family: "Jetbrains Mono", monospace;
   width: 300px;
+  display: flex;
+  justify-content: flex-end;
 }
 @media(max-width: 768px){
   .tag{
@@ -1285,7 +1291,6 @@ h2.ach{
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0));
   letter-spacing: 0.06rem;
   overflow-x: hidden;
-  z-index: 200;
 }
 .background-img{
   background-image: url('Imager (1).jpg');

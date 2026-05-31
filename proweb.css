@@ -67,6 +67,7 @@ body {
   .top-nav{
     font-size: 13px;
     display: block;
+    margin-right: 40px;
   }
   .top-option{
   border: 2px solid transparent;
@@ -114,7 +115,7 @@ body {
   margin: auto;
   box-sizing: border-box;
   overflow: hidden;
-  margin-right: 0px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -127,11 +128,13 @@ body {
   .contain{
     width: auto;
     height: auto;
-    margin: 20px auto;
+    margin: 20px 10px;
     flex-direction: column;
     flex-wrap: wrap;
     overflow-wrap: break-word;
     max-width: 550px;
+    margin-right: min(10%, 500px);
+
   }
 }
 .column{
@@ -320,6 +323,14 @@ h1 {
   border: 5px solid var(--project-card);
   max-height: 500px;
   position: relative;
+  margin: 20px 10px;
+}
+@media(max-width: 768px){
+  .Project-card{
+    max-height: 400px;
+    margin-right: min(10%, 500px);
+
+  }
 }
 .project-img{
   object-fit: cover;

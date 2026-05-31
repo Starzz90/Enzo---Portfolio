@@ -42,6 +42,13 @@ body {
   position: center;
   size: cover;
 }
+@media(max-width: 768px){
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .html {
   scroll-behavior: smooth;
 }
@@ -121,7 +128,6 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
-  padding-left: 20px;
 
 }
 
@@ -129,12 +135,14 @@ body {
   .contain{
     width: auto;
     height: auto;
-    margin: 20px 10px;
     flex-direction: column;
     flex-wrap: wrap;
     overflow-wrap: break-word;
     max-width: 550px;
     margin-right: min(10%, 500px);
+    right: 0;
+    justify-content: center;
+    align-items: center;
 
   }
 }
@@ -197,11 +205,13 @@ body {
   grid-auto-flow: column;
   grid-auto-columns: repeat(auto-fill, minmax(150px, 1fr));
   margin-bottom: 20px;
-  column-gap: 20px;
+  column-gap: 30px;
+  margin-left: 30px;
 }
 @media (max-width: 768px){
   .double-column-auto{
     grid-auto-flow: row;
+    margin-left: 20px;
   }
   .triple-column{
     display: flex;

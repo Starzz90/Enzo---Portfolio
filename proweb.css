@@ -42,13 +42,6 @@ body {
   position: center;
   size: cover;
 }
-@media(max-width: 768px){
-  body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
 .html {
   scroll-behavior: smooth;
 }
@@ -141,8 +134,6 @@ body {
     max-width: 550px;
     margin-right: min(10%, 500px);
     right: 0;
-    justify-content: center;
-    align-items: center;
 
   }
 }

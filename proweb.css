@@ -766,12 +766,12 @@ h1 {
 
 @media (max-width: 1200px) {
   h1 {
-    font-size: 48px;
+    font-size: 50px;
   }
 }
 @media (max-width: 992px) {
   h1 {
-    font-size: 36px;
+    font-size: 45px;
   }
 }
 h2 {
@@ -1531,7 +1531,7 @@ li {
     max-height: 240px;
   }
   h1 {
-    font-size: 34px;
+    font-size: 45px;
   }
 }
 
@@ -1539,7 +1539,6 @@ li {
   .contain {
     padding: 0 12px;
   }
-  .card,
   .Project-card,
   .group,
   .work-card,

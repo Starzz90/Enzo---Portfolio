@@ -1573,6 +1573,7 @@ li {
 #side.side {
   padding-left: 20px;
   font-size: 14px;
+  padding-top: 20px;
 }
 .undertaker {
   color: var(--achievement);

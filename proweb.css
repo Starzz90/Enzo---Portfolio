@@ -424,12 +424,12 @@ h2.Engine {
 }
 @media (max-width: 768px) {
   .tag {
-    font-size: 11px;
+    font-size: 12px;
   }
   .cert{
     font-size: 15px;
   }
-  .job{
+  h2.job{
     font-size: 18px;
   }.work-content{
     font-size: 11px;

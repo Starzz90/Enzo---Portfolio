@@ -746,7 +746,7 @@ h2.Engine {
   overflow-x: hidden;
   overflow-y: hidden;
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   letter-spacing: 2px;

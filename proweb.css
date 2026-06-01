@@ -36,7 +36,7 @@ body {
   background-image: radial-gradient(#d1d1d13e 1px, transparent 1px);
   background-size: 20px 20px;
   color: var(--text);
-  font-family: "Inter", sans-serif;
+  font-family: "Jetbrains Mono", Monospace;
   font-weight: 480;
   margin: 0;
   padding: 0;
@@ -396,6 +396,7 @@ h2.Engine {
     max-width: 100%;
     max-height: none;
     padding: 12px;
+    font-size: 70%;
   }
 }
 .work-card:hover {
@@ -569,6 +570,7 @@ h2.Engine {
   overflow-x: hidden;
   overflow-y: auto;
   padding-top: 0;
+  font-size: 20px;
 }
 .pulser{
   background-color: var(--highlight);
@@ -603,10 +605,22 @@ h2.Engine {
 .live{
   padding-left: 20px;
   gap: 10px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: bolder;
   margin-bottom: 20px;
   display: block;
+}
+.skills{
+  padding-left: 20px;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  display: block;
+  color: var(--highlight);
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
 }
 @media(max-width: 1300px){
   .LIVE-BAR{
@@ -720,6 +734,9 @@ h2.Engine {
     display: flex;
     flex-wrap: wrap;
   }
+  h1.tech{
+    font-size: 20px;
+  }
 }
 h2,
 h3 {
@@ -793,7 +810,7 @@ h3 {
   color: var(--text);
   font-size: 14px;
   margin-top: 10px;
-  font-family: "Metrophobia", sans-serif;
+  font-family: "Jetbrains Mono", monospace;
   font-weight: 600;
 }
 .Text {
@@ -850,6 +867,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: transparent;
   border-radius: 20px;
   padding: 15px;
@@ -1434,6 +1452,7 @@ h2.ach {
   letter-spacing: 0.06rem;
   overflow-x: hidden;
   padding-left: 5px;
+  font-family: "JetBrains Mono", monospace;
 }
 .background-img {
   background-image: url("Imager (1).jpg");
@@ -1455,7 +1474,7 @@ li {
 .list {
   margin-bottom: 20px;
   padding: 20px 15px;
-  font-size: 12px;
+  font-size: 15px;
   right: 0;
   left: 0;
   display: flex;

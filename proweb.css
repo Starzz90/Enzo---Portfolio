@@ -184,7 +184,7 @@ body {
 }
 @media (max-width: 768px) {
   .triple-column-count {
-    gap: 40px;
+    gap: 30px;
   }
   .triple-rows {
     row-gap: -20px;

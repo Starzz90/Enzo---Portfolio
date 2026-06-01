@@ -1468,7 +1468,7 @@ li {
   color: var(--achievement);
   margin-top: 2px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .sidebar {
     display: none;
     opacity: 0;
@@ -1476,7 +1476,7 @@ li {
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1100px) {
   /* keep sidebar near the left edge if viewport is narrower than centered content area */
   .sidebar {
     display: none;

@@ -426,6 +426,14 @@ h2.Engine {
   .tag {
     font-size: 11px;
   }
+  .cert{
+    font-size: 15px;
+  }
+  .job{
+    font-size: 18px;
+  }.work-content{
+    font-size: 11px;
+  }
 }
 .cert-tag {
   display: flex;

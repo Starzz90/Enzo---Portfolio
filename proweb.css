@@ -31,7 +31,14 @@
   box-sizing: border-box;
 }
 
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
+  min-height: 100vh;
   background-color: var(--background-color);
   background-image: radial-gradient(#d1d1d13e 1px, transparent 1px);
   background-size: 20px 20px;
@@ -41,13 +48,10 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  flex: 1;
+  display: block;
 }
 
 .html {
@@ -435,7 +439,7 @@ h2.Engine {
   .tag {
     font-size: 12px;
   }
-  .tagt{
+  .tagt {
     font-size: 10px;
   }
   .cert {
@@ -475,7 +479,7 @@ h2.Engine {
 @media (max-width: 768px) {
   .specs-card {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;

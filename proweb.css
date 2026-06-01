@@ -421,12 +421,22 @@ h2.Engine {
   justify-content: flex-end;
   flex-wrap: wrap;
 }
+.tagt {
+  color: var(--achievement);
+  font-size: 12px;
+  font-family: "Jetbrains Mono", monospace;
+  width: auto;
+  max-width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
 @media (max-width: 768px) {
   .tag {
     font-size: 12px;
   }
   .tagt{
-    font-size: 9px;
+    font-size: 6px;
   }
   .cert {
     font-size: 15px;

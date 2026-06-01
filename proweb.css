@@ -425,6 +425,9 @@ h2.Engine {
   .tag {
     font-size: 12px;
   }
+  .tagt{
+    font-size: 9px;
+  }
   .cert {
     font-size: 15px;
   }
@@ -1514,7 +1517,6 @@ li {
   .triple-column-flex {
     flex-direction: column;
   }
-  .card,
   .Project-card,
   .group,
   .work-card,

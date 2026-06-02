@@ -1584,11 +1584,6 @@ li {
     display: flex;
   }
 }
-@media(max-width: 2270px){
-  .top-nav{
-    display: flex;
-  }
-}
 .STATS {
   margin-top: 30px;
 }

@@ -53,3 +53,15 @@ function Cod(){
 function Experience(){
     window.location.href = "experience.html";
 };
+
+const SideLive = document.querySelector(".LIVE-BAR");
+const Side = document.querySelector(".sidebar");
+const top = document.querySelector(".top-nav");
+
+const observer = new MutationObserver(() => {
+    const SideLiveStyle = window.getComputedStyle(SideLive).display !== "none";
+    Side.style.display = SideLiveStyle ? "none" : "block";
+    top.style.display = SideLiveStyle ? "flex" : "none";
+});
+
+observer.observe(SideLive, { attributes: true, attributeFilter: ["style"] });

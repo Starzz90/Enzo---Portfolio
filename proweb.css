@@ -1598,6 +1598,9 @@ li {
   .LIVE-BAR {
     display: none;
   }
+  .top-nav{
+    display: flex;
+  }
 }
 .STATS {
   margin-top: 30px;

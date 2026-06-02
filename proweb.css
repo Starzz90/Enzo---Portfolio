@@ -1587,6 +1587,29 @@ li {
 .STATS {
   margin-top: 30px;
 }
+.achieve-card{
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: var(--cards);
+  margin-left: 0;
+  border: 3px solid var(--cards-above);
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 8px solid var(--cards-above-tools);
+  min-width: 0; /* allow shrinking inside flex containers */
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+.ra:hover{
+  transform: translateY(-50%);
+  transition: transform 2s ease;
+}
 .cage {
   background-color: transparent;
   width: 100%;

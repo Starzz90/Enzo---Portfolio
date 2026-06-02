@@ -78,11 +78,6 @@ body {
   box-shadow: rgba(137, 137, 137, 0.6) 0px 4px 8px;
   display: none;
 }
-@media (max-width: 1300px) {
-  .top-nav {
-    display: flex;
-  }
-}
 .top-option {
   border: 2px solid transparent;
   padding: 5px 7px;
@@ -97,19 +92,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-}
-.top-nav-left {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 20px;
-}
-.top-nav-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 0; /* remove right padding for symmetric spacing */
   gap: 20px;
 }
 .contain {
@@ -1590,7 +1572,7 @@ li {
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1410px) {
   /* keep sidebar near the left edge if viewport is narrower than centered content area */
   .sidebar {
     display: none;

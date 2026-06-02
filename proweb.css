@@ -1572,7 +1572,7 @@ li {
   }
 }
 
-@media (max-width: 1410px) {
+@media (max-width: 1400px) {
   /* keep sidebar near the left edge if viewport is narrower than centered content area */
   .sidebar {
     display: none;
@@ -1580,6 +1580,11 @@ li {
   .LIVE-BAR {
     display: none;
   }
+  .top-nav{
+    display: flex;
+  }
+}
+@media(max-width:2200px){
   .top-nav{
     display: flex;
   }

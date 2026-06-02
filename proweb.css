@@ -1585,11 +1585,17 @@ li {
     opacity: 0;
     transform: translateX(-100px);
   }
+  .LIVE-BAR {
+    display: none;
+  }
 }
 
 @media (max-width: 1400px) {
   /* keep sidebar near the left edge if viewport is narrower than centered content area */
   .sidebar {
+    display: none;
+  }
+  .LIVE-BAR {
     display: none;
   }
 }

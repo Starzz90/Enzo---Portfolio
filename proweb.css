@@ -1678,11 +1678,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-@media(min-bottom: 5px){
-  .certif{
-    vertical-align: bottom;
-  }
+  vertical-align: middle;
 }
 .certs {
     overflow-y: auto;

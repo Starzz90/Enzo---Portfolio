@@ -1650,9 +1650,11 @@ li {
   top: 0.00001px;
   height: auto;
   width: 100%;
-  transform: translateY(100%);
+  transform: translateY(50%);
   transform: translateX(0%);
   z-index: 1;
+  bottom: 0;
+  vertical-align: bottom;
 }
 .certs {
     overflow-y: auto;

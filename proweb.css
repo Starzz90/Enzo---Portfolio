@@ -520,7 +520,7 @@ h2.Engine {
   border: 3px solid transparent;
   max-height: 400px;
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   margin: 20px 0;

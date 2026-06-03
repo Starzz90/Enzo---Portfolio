@@ -1625,7 +1625,7 @@ li {
   transition: transform 1s ease;
   background-size: cover;
 }
-.ra.ra:not(:hover) {
+.ra:not(:active) {
   transform: translateY(0);
   transition: transform 1s ease;
 }

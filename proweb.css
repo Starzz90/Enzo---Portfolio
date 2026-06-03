@@ -806,6 +806,7 @@ h3.STARCORP {
 }
 h3.Exp {
   letter-spacing: 20px;
+  margin: 0px auto;
 }
 @media (max-width: 768px) {
   h3.Exp {
@@ -954,7 +955,7 @@ h3 {
 }
 @media (max-width: 768px) {
   .image-container {
-    width: 75px;
+    width: 70px;
     height: auto;
   }
   #On.image-container {

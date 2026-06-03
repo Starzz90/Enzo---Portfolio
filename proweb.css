@@ -812,12 +812,12 @@ h3.STARCORP {
   letter-spacing: 6px;
 }
 h3.Exp {
-  letter-spacing: 20px;
-  margin: 0px auto;
+  letter-spacing: 30px;
+  text-align: center;
 }
 @media (max-width: 768px) {
   h3.Exp {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 h3 {

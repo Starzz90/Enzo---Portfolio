@@ -1608,7 +1608,11 @@ li {
 }
 .ra:hover{
   transform: translateY(-50%);
-  transition: transform 2s ease;
+  transition: transform 1s ease;
+}
+.ra:not(:hover){
+  transform: translateY(0);
+  transition: transfor;
 }
 .cage {
   background-color: transparent;

@@ -1654,7 +1654,7 @@ li {
   z-index: 1;
   bottom: 0;
 }
-@media(max-width: 1500px){
+@media(min-bottom: 5px){
   .certif{
     vertical-align: bottom;
   }

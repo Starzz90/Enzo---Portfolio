@@ -1611,12 +1611,20 @@ li {
   background-color: var(--achieve);
   z-index: 5;
 }
-.ra:hover {
+.ra:hover{
   transform: translateY(-50%);
   transition: transform 1s ease;
   background-size: cover;
 }
-.ra:not(:hover) {
+.ra:not(:hover){
+  transform: translateY(0);
+  transition: transform 1s ease;
+}
+.ra:active {
+  transform: translateY(-50%);
+  transition: transform 1s ease;
+}
+.ra.ra:not(:hover) {
   transform: translateY(0);
   transition: transform 1s ease;
 }
@@ -1637,11 +1645,11 @@ li {
   background-size: cover;
   width: 100%;
   position: absolute;
-  opacity: 50%;
+  opacity: 70%;
   top: 0.00001px;
   height: auto;
   width: 100%;
-  transform: translateY(50%);
+  transform: translateY(100%);
   transform: translateX(0%);
   z-index: 1;
 }

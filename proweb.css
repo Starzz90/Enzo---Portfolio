@@ -871,6 +871,7 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0px auto;
   opacity: 0.7;
 }
 .image-container {

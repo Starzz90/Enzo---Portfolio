@@ -174,6 +174,13 @@ body {
     row-gap: -5px;
   }
 }
+@media(max-width: 400px){
+  .triple-column-count{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}
 .triple-rows {
   display: grid;
   grid-auto-flow: row;
@@ -955,7 +962,7 @@ h3 {
 }
 @media (max-width: 768px) {
   .image-container {
-    width: 70px;
+    width: 75px;
     height: auto;
   }
   #On.image-container {

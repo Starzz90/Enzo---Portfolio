@@ -57,11 +57,17 @@ function Experience(){
 const SideLive = document.querySelector(".LIVE-BAR");
 const Side = document.querySelector(".sidebar");
 const top = document.querySelector(".top-nav");
+const differ = document.querySelector(".differ");
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
 
 const observer = new MutationObserver(() => {
     const SideLiveStyle = window.getComputedStyle(SideLive).display !== "none";
     Side.style.display = SideLiveStyle ? "none" : "block";
     top.style.display = SideLiveStyle ? "flex" : "none";
+    differ.style.display = SideLiveStyle ? "flex" : "none";
+    left.style.display = SideLiveStyle ? "flex" : "block";
+    right.style.display = SideLiveStyle ? "flex" : "block";
 });
 
 observer.observe(SideLive, { attributes: true, attributeFilter: ["style"] });

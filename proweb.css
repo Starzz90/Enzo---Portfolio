@@ -1607,7 +1607,7 @@ li {
   position: relative;
 }
 .ra {
-  padding: 20px 30px;
+  padding: 20px 20px;
   background-color: var(--achieve);
   z-index: 5;
 }
@@ -1623,6 +1623,7 @@ li {
 .ra:active {
   transform: translateY(-50%);
   transition: transform 1s ease;
+  background-size: cover;
 }
 .ra.ra:not(:hover) {
   transform: translateY(0);

@@ -954,7 +954,7 @@ h3 {
 }
 @media (max-width: 768px) {
   .image-container {
-    width: 70px;
+    width: 80px;
     height: auto;
   }
   #On.image-container {

@@ -1653,7 +1653,11 @@ li {
   transform: translateX(0%);
   z-index: 1;
   bottom: 0;
-  vertical-align: bottom;
+}
+@media(max-width: 1500px){
+  .certif{
+    vertical-align: bottom;
+  }
 }
 .certs {
     overflow-y: auto;

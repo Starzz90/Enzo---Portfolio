@@ -1625,10 +1625,6 @@ li {
   transition: transform 1s ease;
   background-size: cover;
 }
-.ra.ra:not(:hover) {
-  transform: translateY(0);
-  transition: transform 1s ease;
-}
 .cage {
   background-color: transparent;
   width: 100%;

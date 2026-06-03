@@ -1647,7 +1647,7 @@ li {
   width: 100%;
   position: absolute;
   opacity: 70%;
-  top: 0.00001px;
+  top: 50px;
   height: auto;
   width: 100%;
   transform: translateY(50%);

@@ -65,3 +65,10 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(SideLive, { attributes: true, attributeFilter: ["style"] });
+
+var ra = document.getElementById("ra");
+if(ra){
+    ra.addEventListener("click", function(e){
+        ra.classList.toggle("hovered");
+    }
+)};

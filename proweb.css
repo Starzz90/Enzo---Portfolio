@@ -65,6 +65,7 @@ body {
   background-color: var(--top-nav-dim);
   width: fit-content;
   height: fit-content;
+  max-width: 500px;
   display: flex;
   top: 10px;
   left: 50%;
@@ -93,7 +94,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: auto;
+  gap: 20px;
+}
+@media(max-width: 768px){
+    .space-between{
+    gap: 5px;
+  }
 }
 .contain {
   width: 100%;

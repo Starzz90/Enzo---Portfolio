@@ -1718,3 +1718,15 @@ li {
   border-radius: 10px;
   animation: forwards 5s infinite;
 }
+.feedback-con{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  background-color: var(--cards);
+  padding: 20px;
+  border-radius: 0px;
+  border: 2px solid var(--cards-above);
+}

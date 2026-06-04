@@ -93,7 +93,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: auto;
 }
 .contain {
   width: 100%;
@@ -168,13 +168,13 @@ body {
 }
 @media (max-width: 768px) {
   .triple-column-count {
-    gap: 40px;
+    gap: 30px;
   }
   .triple-rows {
     row-gap: -5px;
   }
 }
-@media(max-width: 400px){
+@media(max-width: 370px){
   .triple-column-count{
     gap: 20px;
     display: flex;

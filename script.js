@@ -101,8 +101,8 @@ icons.forEach((icon) => {
   });
 });
 
-const hideButton = document.querySelector("button#hide");
-const hiddenDiv = document.querySelector(".hidden");
+var hideButton = document.getElementById("hide");
+var hiddenDiv = document.querySelector(".hidden");
 
 if (hideButton && hiddenDiv) {
   hideButton.addEventListener("click", function () {

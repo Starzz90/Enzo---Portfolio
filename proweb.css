@@ -454,12 +454,19 @@ h2.Engine {
   .work-content {
     font-size: 11px;
   }
+  .cert-tag-n{
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
 .cert-tag {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 5px;
+  left: 0;
+  
 }
 .line {
   border: 2px solid var(--cards-above-tools);
@@ -521,6 +528,11 @@ h2.Engine {
   flex-grow: 1;
   vertical-align: bottom;
   z-index: 40;
+}
+@media(max-widtth: 768px){
+  .Project-desc{
+    flex-direction: row;
+  }
 }
 .project {
   width: 100%;

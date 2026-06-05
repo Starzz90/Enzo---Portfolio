@@ -101,6 +101,6 @@ icons.forEach((icon) => {
   });
 });
 
-function show(){
+function buttonToggle(){
   document.getElementById("hidden").style.display = "block";
 }

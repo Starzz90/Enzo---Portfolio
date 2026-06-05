@@ -1784,26 +1784,11 @@ inputs:-webkit-autofill-active{
   margin-top: 20px;
   border: 2px solid var(--cards-above);
   cursor:crosshair;
-  background:
-   /* Top-Left Horizontal Line */
-    linear-gradient(to right, #e74c3c 50%, transparent 50%) 0 0,
-    /* Top-Left Vertical Line */
-    linear-gradient(to bottom, #e74c3c 50%, transparent 50%) 0 0,
-    /* Bottom-Right Horizontal Line */
-    linear-gradient(to left, #e74c3c 50%, transparent 50%) 100% 100%,
-    /* Bottom-Right Vertical Line */
-    linear-gradient(to top, #e74c3c 50%, transparent 50%) 100% 100%;
-  background-repeat: no-repeat;
-  background-size: 
-    20px 2px,  /* Size of top-left horizontal line (width height) */
-    2px 20px,  /* Size of top-left vertical line */
-    20px 2px,  /* Size of bottom-right horizontal line */
-    2px 20px;  /* Size of bottom-right vertical line */
 }
 .achieve-others:hover,
 .achieve-others:active{
   background-color: var(--highlight);
 }
-.hidden{
+#hidden.hidden{
   display: none;
 }

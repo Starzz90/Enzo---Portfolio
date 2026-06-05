@@ -101,15 +101,6 @@ icons.forEach((icon) => {
   });
 });
 
-var hideButton = document.querySelector('.achieve-others');
-var hiddenDiv = document.querySelector(".hidden");
-
-if (hideButton && hiddenDiv) {
-  hideButton.addEventListener("click", function () {
-    const isHidden = window.getComputedStyle(hiddenDiv).display === "none";
-    hiddenDiv.style.display = isHidden ? "block" : "none";
-    hideButton.textContent = isHidden
-      ? "CLICK TO HIDE OTHERS"
-      : "CLICK TO VIEW OTHERS";
-  });
+function show(){
+  document.getElementById("hidden").style.display = "block";
 }

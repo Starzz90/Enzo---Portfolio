@@ -924,7 +924,7 @@ h3 {
 }
 #py.image-container {
   background-color: rgb(30, 27, 98);
-  padding: 15px;
+  padding: 13px;
 }
 #php.image-container {
   background-color: rgb(132, 126, 174);
@@ -979,7 +979,7 @@ h3 {
 }
 @media (max-width: 768px) {
   .image-container {
-    width: 50px;
+    width: 75px;
     height: auto;
   }
   #On.image-container {

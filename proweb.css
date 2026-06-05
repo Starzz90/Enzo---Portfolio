@@ -232,7 +232,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 10px;
+  padding: 5px;
 }
 .six-column-image {
   display: flex;
@@ -261,7 +261,7 @@ h1 {
   .five-column-image {
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
-    padding: 15px;
+    padding: 5px;
   }
   .contain {
     padding: 0 20px;

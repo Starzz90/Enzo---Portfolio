@@ -26,6 +26,7 @@
   --below: rgb(26, 26, 26);
   --achieve: rgb(8, 8, 8);
   --gradient: hsl(0, 0%, 3%);
+  --used: hsl(23, 100%, 46%);
 }
 *::before,
 *::after {
@@ -721,7 +722,7 @@ h2.Engine {
   font-weight: 400;
 }
 .used-card {
-  background-color: var(--highlight-dim);
+  background-color: var(--used);
   border-radius: 30px;
   width: fit-content;
   height: fit-content;
@@ -731,6 +732,10 @@ h2.Engine {
   margin-bottom: 2px;
   border: 2px solid var(--highlight);
   font-weight: bolder;
+  color: var(--text);
+}
+.used-card:hover{
+  background-color: var(--highlight);
 }
 .used {
   background-color: var(--achievement);

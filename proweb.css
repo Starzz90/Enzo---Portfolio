@@ -343,7 +343,7 @@ h1 {
   object-fit: cover;
   width: 100%;
   height: auto;
-  max-height: 290px;
+  max-height: auto;
 }
 .section-engineer {
   width: 100%;
@@ -497,7 +497,7 @@ h2.Engine {
   justify-content: center;
 }
 .Project-desc {
-  background-color: var(--name);
+  background: linear-gradient(to top, #424242, #ffffff00);
   height: auto;
   max-height: auto;
   width: 100%;
@@ -513,7 +513,8 @@ h2.Engine {
   font-size: 15px;
   gap: 10px;
   flex-grow: 1;
-  position: absolute;
+  vertical-align: bottom;
+  z-index: 40;
 }
 .project {
   width: 100%;
@@ -1565,7 +1566,7 @@ li {
     padding: 0 12px;
   }
   .project-img {
-    max-height: 200px;
+    max-height: auto;
   }
   .double-column-auto {
     grid-auto-flow: row;

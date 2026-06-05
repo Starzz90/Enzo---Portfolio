@@ -101,7 +101,7 @@ icons.forEach((icon) => {
   });
 });
 
-var hideButton = document.getElementById("hide");
+var hideButton = document.querySelector('.achieve-others');
 var hiddenDiv = document.querySelector(".hidden");
 
 if (hideButton && hiddenDiv) {

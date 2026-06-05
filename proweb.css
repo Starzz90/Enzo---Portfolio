@@ -1791,4 +1791,7 @@ inputs:-webkit-autofill-active{
 }
 #hidden.hidden{
   display: none;
+  z-index: 3;
+  position: absolute;
+  top: 20px;
 }

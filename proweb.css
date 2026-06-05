@@ -25,9 +25,8 @@
   --cert: rgb(255, 123, 0);
   --below: rgb(26, 26, 26);
   --achieve: rgb(8, 8, 8);
+  --gradient: hsl(0, 0%, 3%);
 }
-
-*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -328,10 +327,11 @@ h1 {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  border: 5px solid var(--project-card);
+  border: 1px solid var(--achievement);
   max-height: 500px;
   position: relative;
   margin: 20px 0;
+  background-color: var(--gradient);
 }
 @media (max-width: 768px) {
   .Project-card {
@@ -499,7 +499,7 @@ h2.Engine {
   justify-content: center;
 }
 .Project-desc {
-  background: linear-gradient(to top, #0f0f0f, #ffffff00);
+  background: linear-gradient(to top, #040404 50%, #ffffff00 );
   height: auto;
   max-height: auto;
   width: 100%;

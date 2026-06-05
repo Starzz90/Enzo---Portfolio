@@ -1,3 +1,4 @@
+
 :root {
   --background-color: #030303;
   --header: #ecfeff;
@@ -27,7 +28,9 @@
   --achieve: rgb(8, 8, 8);
   --gradient: hsl(0, 0%, 3%);
   --used: hsl(23, 100%, 46%);
+  --HOVERED: hsl(23, 100%, 61%);
 }
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
 *::before,
 *::after {
   box-sizing: border-box;
@@ -440,7 +443,7 @@ h2.Engine {
     font-size: 12px;
   }
   .tagt {
-    font-size: 9px;
+    font-size: 10px;
   }
   .cert {
     font-size: 15px;
@@ -735,7 +738,7 @@ h2.Engine {
   color: var(--text);
 }
 .used-card:hover{
-  background-color: var(--highlight);
+  background-color: var(--HOVERED);
 }
 .used {
   background-color: var(--achievement);
@@ -785,9 +788,13 @@ h1 {
   word-wrap: break-word;
   hyphens: auto;
   font-weight: bolder;
+  font-family: "Boldonse", system-ui;
+  letter-spacing: -6px;
+  word-spacing: 5px;
+}
+h1#main{
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 2px;
-  word-spacing: 5px;
 }
 
 @media (max-width: 1200px) {
@@ -1124,7 +1131,7 @@ li.achieve {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
-  flex-direction: column;
+  flex-direction: column; 
 }
 .project-data {
   font-size: 15px;

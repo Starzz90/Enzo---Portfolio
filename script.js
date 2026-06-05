@@ -78,29 +78,16 @@ if (ra) {
   });
 }
 
-const icons = document.querySelectorAll(".image-container");
-const identity = document.getElementById("identity");
-const box = document.querySelector(".box");
-
-icons.forEach((icon) => {
-  icon.addEventListener("mouseenter", () => {
-    if (box) {
-      box.style.display = "flex";
-    }
-    if (identity) {
-      identity.textContent = icon.getAttribute("data-name");
-    }
-  });
-  icon.addEventListener("mouseleave", () => {
-    if (box) {
-      box.style.display = "none";
-    }
-    if (identity) {
-      identity.textContent = "";
-    }
-  });
-});
-
 function buttonToggle(){
   document.getElementById("hidden").style.display = "block";
 }
+
+var hidden = document.getElementById("hidden");
+var tog = document.getElementById("bugle");
+
+if(tog){
+tog.addEventListener("click", function(e){
+  hidden.classList.toggle("hovered");
+});
+}
+

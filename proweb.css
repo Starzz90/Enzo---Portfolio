@@ -1789,9 +1789,12 @@ inputs:-webkit-autofill-active{
 .achieve-others:active{
   background-color: var(--highlight);
 }
-#hidden.hidden{
+.hidden{
   display: none;
   z-index: 3;
   position: relative;
   top: 20px;
+}
+.hidden:hover{
+  display: block;
 }

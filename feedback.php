@@ -1,3 +1,15 @@
+<?php
+    include "connect.php";
+    if(isset($_POST['submit'])){
+        $user = $_POST['username'];
+        $feed = $_POST['feedback'];
+        $rate = $_POST['rating'];
+        
+        $query = "INSERT INTO `feedbacks`(`Username`, `Feedback`, `Rating`) VALUES ('$user','$feed','$rate')";
+        $result= mysqli_query($connect, $query);
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,7 +40,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="proweb.css" />
-    <title>Enzo - Engineering</title>
+    <title>Enzo - Experience</title>
   </head>
   <body>
     <nav>
@@ -135,8 +147,6 @@
                 />
                 <path d="M14 2v5a1 1 0 0 0 1 1h5" /></svg
             ></a>
-            <a href="feedback.html" class="top-option"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text-icon lucide-message-square-text"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M7 11h10"/><path d="M7 15h6"/><path d="M7 7h8"/></svg></a>
-            
           </div>
         </div>
       </div>
@@ -244,7 +254,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-book-user-icon lucide-book-user"
-            >
+          >
             <path d="M15 13a3 3 0 1 0-6 0" />
             <path
               d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
@@ -253,8 +263,6 @@
           </svg>
           EXPERIENCE
         </a>
-        <a href="feedback.html" class="list"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text-icon lucide-message-square-text"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M7 11h10"/><path d="M7 15h6"/><path d="M7 7h8"/></svg> FEEDBACK</a>
-        
       <div class="double-column-auto"></div>
       <div class="STATS">
         <span class="side" id="side">JOURNEY</span>
@@ -288,53 +296,26 @@
     </div>
 </div>
     <div class="contain">
-      <div class="main-head">
+        <div class="main-head">
         <div class="status-card">Status = Online;</div>
-        <h1>ENGINEERING// PROJECTS--HARDWARE && SOFTWARE</h1>
-        <span class="occupation">Practicing and Creating through Hardware and Software.</span><br/>
-        <span class="subheading">Improving.Designing.And Publishing works with innovation and adaptability towards a perfect conclusion.</span>
-        <div class="under-text"></div>
-      </div>
-    </div>
-    <div class="contain">
-      <div class="Long-bottom"></div>
-            <div class="cert-tag"><span class="cert"><h2 class="Engine">HARDWARE</h2></span><span class="tag">Circuits. Arduino. Sensors. Soldering.</span></div>
-            <div class="double-column-auto">
-                <div class="Project-card">
-                    <img src="Engine2.jpeg" class="project-img">
-                    <div class="Project-desc">
-                        <span class="project-name">Onshape<div class="project-data"><span class="used-card">Sketches</span><span class="used-card">3D</span><span class="used-card">Tools</span></div></span>
-                  </div>
-                </div>
-                <div class="Project-card">
-                    <img src="Engine.jpeg" class="project-img">
-                    <div class="Project-desc">
-                        <span class="project-name">RC robot 
-                          <div class="project-data"><span class="used-card">Circuit</span><span class="used-card">Bluet.</span><span class="used-card">Arduino</span></div></span>
-                    </div>
-                </div>
-                <div class="Project-card">
-                    <img src="Circuit.jpeg" class="project-img">
-                    <div class="Project-desc">
-                        <span class="project-name">Maze Robot <div class="project-data"><span class="used-card">Arduino</span><span class="used-card">MITAPP</span><span class="used-card">Motor</span></div></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cert-tag"><span class="cert"><h2 class="Engine">SOFTWARE</h2></span><span class="tag">Python. PHP. JS. HTML&CSS. SQL. DOCKER. Tailwind.</span></div>
-            <div class="double-column">
-                <div class="Project-card">
-                    <img src="Coding.jpeg" class="project-img">
-                    <div class="Project-desc">
-                        <span class="project-name">Mini-Projects</span>
-                    </div>
-                </div>
-                <div class="Project-card">
-                    <img src="Coding2.jpeg" class="project-img">
-                    <div class="Project-desc">
-                        <span class="project-name">Achievement-Web</span>
-                    </div>
-                </div>
-            </div>
+            <h1>FEEDBACK</h1>
+            <span class="occupation">An important part of exploration and growth</span><br/>
+            <span class="subheading">Improving.Designing.And Publishing works with innovation and adaptability towards a perfect conclusion.</span>
+            <div class="under-text"></div>
+        </div>
+        <div class="feedback-con">
+        <div class="Center">
+            <h2 class="feedback">FEEDBACK</h2>
+        </div>
+        <form method="POST" action=""> 
+            <p class="feedback-para">
+              <input type="text" name="username" min="5" max="30" placeholder="USERNAME" class="inputs" required/>
+              <textarea type="text" name="feedback" min="5" max="50" placeholder="FEEDBACK" class="inputs" required/></textarea>
+              <input type="rating" name="rating" min="1" max="5" placeholder="RATING (1-5)" class="inputs" required/>
+              <button class="submit" name="submit" class="submit">SUBMIT</button>
+            </p>
+        </form>
+        </div>
     </div>
   </body>
   <script src="script.js"></script>

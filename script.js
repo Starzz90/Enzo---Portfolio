@@ -78,29 +78,38 @@ if (ra) {
   });
 }
 
-const icon = document.querySelectorAll(".image-container");
+const icons = document.querySelectorAll(".image-container");
 const identity = document.getElementById("identity");
 const box = document.querySelector(".box");
 
 icons.forEach((icon) => {
   icon.addEventListener("mouseenter", () => {
-    box.style.display = "flex";
-    identity.textContent = icon.getAttribute("data-name");
+    if (box) {
+      box.style.display = "flex";
+    }
+    if (identity) {
+      identity.textContent = icon.getAttribute("data-name");
+    }
   });
   icon.addEventListener("mouseleave", () => {
-    box.style.display = "none";
-    identity.textContent = "";
+    if (box) {
+      box.style.display = "none";
+    }
+    if (identity) {
+      identity.textContent = "";
+    }
   });
 });
-const hideButton = document.querySelector('button#hide');
-const hiddenDiv = document.querySelector('.hidden');
 
-hideButton.onclick = function() {
-  if (window.getComputedStyle(hiddenDiv).display === 'none') {
-    hiddenDiv.style.display = 'block';
-    hideButton.textContent = 'CLICK TO HIDE OTHERS';
-  } else {
-    hiddenDiv.style.display = 'none';
-    hideButton.textContent = 'CLICK TO VIEW OTHERS';
-  }
-};
+const hideButton = document.querySelector("button#hide");
+const hiddenDiv = document.querySelector(".hidden");
+
+if (hideButton && hiddenDiv) {
+  hideButton.addEventListener("click", function () {
+    const isHidden = window.getComputedStyle(hiddenDiv).display === "none";
+    hiddenDiv.style.display = isHidden ? "block" : "none";
+    hideButton.textContent = isHidden
+      ? "CLICK TO HIDE OTHERS"
+      : "CLICK TO VIEW OTHERS";
+  });
+}

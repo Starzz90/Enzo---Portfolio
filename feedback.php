@@ -1,3 +1,15 @@
+<?php
+    include "connect.php";
+    if(isset($_POST['submit'])){
+        $user = $_POST['username'];
+        $feed = $_POST['feedback'];
+        $rate = $_POST['rating'];
+        
+        $query = "INSERT INTO `feedbacks`(`Username`, `Feedback`, `Rating`) VALUES ('$user','$feed','$rate')";
+        $result= mysqli_query($connect, $query);
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +41,6 @@
     />
     <link rel="stylesheet" href="proweb.css" />
     <title>Enzo - Experience</title>
-  <?php
   </head>
   <body>
     <nav>
@@ -296,12 +307,14 @@
         <div class="Center">
             <h2 class="feedback">FEEDBACK</h2>
         </div>
+        <form method="POST" action=""> 
             <p class="feedback-para">
               <input type="text" name="username" min="5" max="30" placeholder="USERNAME" class="inputs" required/>
               <textarea type="text" name="feedback" min="5" max="50" placeholder="FEEDBACK" class="inputs" required/></textarea>
               <input type="rating" name="rating" min="1" max="5" placeholder="RATING (1-5)" class="inputs" required/>
               <button class="submit" name="submit" class="submit">SUBMIT</button>
             </p>
+        </form>
         </div>
     </div>
   </body>

@@ -499,7 +499,7 @@ h2.Engine {
   justify-content: center;
 }
 .Project-desc {
-  background: linear-gradient(to top, #424242, #ffffff00);
+  background: linear-gradient(to top, #0f0f0f, #ffffff00);
   height: auto;
   max-height: auto;
   width: 100%;

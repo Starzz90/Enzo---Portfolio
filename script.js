@@ -92,3 +92,15 @@ icons.forEach((icon) => {
     identity.textContent = "";
   });
 });
+const hideButton = document.querySelector('button#hide');
+const hiddenDiv = document.querySelector('.hidden');
+
+hideButton.onclick = function() {
+  if (window.getComputedStyle(hiddenDiv).display === 'none') {
+    hiddenDiv.style.display = 'block';
+    hideButton.textContent = 'CLICK TO HIDE OTHERS';
+  } else {
+    hiddenDiv.style.display = 'none';
+    hideButton.textContent = 'CLICK TO VIEW OTHERS';
+  }
+};

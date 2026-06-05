@@ -10,9 +10,9 @@
   --on-surface: rgba(255, 255, 255, 0.7);
   --grid: rgba(39, 39, 39, 0.1);
   --top-nav-dim: #45454578;
-  --highlight: #ec4111;
+  --highlight: #FF6600;
   --color-change: #ff8563;
-  --highlight-dim: rgba(255, 77, 0, 0.3);
+  --highlight-dim: rgba(255, 102, 0, 0.416);
   --image-container-hover: rgba(105, 105, 105, 0.347);
   --shadow: #585858;
   --achievement: #434343;
@@ -784,12 +784,12 @@ h1 {
 
 @media (max-width: 1200px) {
   h1 {
-    font-size: 60px;
+    font-size: 65px;
   }
 }
 @media (max-width: 992px) {
   h1 {
-    font-size: 50px;
+    font-size: 60px;
   }
 }
 h2 {
@@ -1556,7 +1556,7 @@ li {
     max-height: 240px;
   }
   h1 {
-    font-size: 45px;
+    font-size: 60px;
   }
 }
 
@@ -1642,16 +1642,19 @@ li {
   background-color: var(--achieve);
   z-index: 5;
 }
-.ra:hover{
+.ra:hover
+{
   transform: translateY(-100%);
   transition: transform 1.5s ease;
   background-size: cover;
 }
-.ra:not(:hover){
+.ra:not(:hover)
+{
   transform: translateY(0);
   transition: transform 1s ease;
 }
-.ra:active {
+.ra:active
+{
   transform: translateY(-100%);
   transition: transform 1.5s ease;
   background-size: cover;
@@ -1770,4 +1773,37 @@ inputs:-webkit-autofill-active{
   font-weight: bold;
   cursor: pointer;
   letter-spacing: 5px;
+}
+.achieve-others{
+  background-color: var(--cards-above);
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  color: var(--text);
+  font-family: "Jetbrains Mono", monospace;
+  margin-top: 20px;
+  border: 2px solid var(--cards-above);
+  cursor:crosshair;
+  background:
+   /* Top-Left Horizontal Line */
+    linear-gradient(to right, #e74c3c 50%, transparent 50%) 0 0,
+    /* Top-Left Vertical Line */
+    linear-gradient(to bottom, #e74c3c 50%, transparent 50%) 0 0,
+    /* Bottom-Right Horizontal Line */
+    linear-gradient(to left, #e74c3c 50%, transparent 50%) 100% 100%,
+    /* Bottom-Right Vertical Line */
+    linear-gradient(to top, #e74c3c 50%, transparent 50%) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 
+    20px 2px,  /* Size of top-left horizontal line (width height) */
+    2px 20px,  /* Size of top-left vertical line */
+    20px 2px,  /* Size of bottom-right horizontal line */
+    2px 20px;  /* Size of bottom-right vertical line */
+}
+.achieve-others:hover,
+.achieve-others:active{
+  background-color: var(--highlight);
+}
+.hidden{
+  display: none;
 }

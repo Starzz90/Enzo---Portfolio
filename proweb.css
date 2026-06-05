@@ -343,7 +343,9 @@ h1 {
   object-fit: cover;
   width: 100%;
   height: auto;
-  max-height: auto;
+  max-height: 290px;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 .section-engineer {
   width: 100%;
@@ -1566,7 +1568,7 @@ li {
     padding: 0 12px;
   }
   .project-img {
-    max-height: auto;
+    max-height: 240px;
   }
   .double-column-auto {
     grid-auto-flow: row;

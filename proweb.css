@@ -12,7 +12,6 @@
   --grid: rgba(39, 39, 39, 0.1);
   --top-nav-dim: #45454578;
   --highlight: #FF6600;
-  --color-change: #ff8563;
   --highlight-dim: rgba(255, 102, 0, 0.416);
   --image-container-hover: rgba(105, 105, 105, 0.347);
   --shadow: #585858;
@@ -24,7 +23,7 @@
   --content-half: calc(var(--content-max) / 2);
   --work-content: rgba(219, 219, 219, 0.811);
   --cert: rgb(255, 123, 0);
-  --below: rgb(26, 26, 26);
+  --below: rgb(12, 12, 12);
   --achieve: rgb(8, 8, 8);
   --gradient: hsl(0, 0%, 3%);
   --used: hsl(23, 100%, 46%);
@@ -742,7 +741,7 @@ h2.Engine {
   background-color: var(--HOVERED);
 }
 .used {
-  background-color: var(--achievement);
+  background-color: var(--);
   border-radius: 20px;
   width: 100%;
   height: fit-content;
@@ -762,7 +761,7 @@ h2.Engine {
   flex-grow: 1;
 }
 .used:hover {
-  background-color: var(--color-change);
+  background-color: var(--used);
   border-color: rgb(255, 85, 0);
 }
 @media (max-width: 768px) {

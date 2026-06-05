@@ -31,7 +31,6 @@
 
     <link rel="stylesheet" href="proweb.css" />
     <title>Enzo - Experience</title>
-  <?php
   </head>
   <body>
     <nav>
@@ -300,10 +299,10 @@
         </div>
         <form method="POST" action="connect.php">
             <p class="feedback-para">
-              <input type="text" name="username" min="5" max="30" placeholder="USERNAME" class="inputs" required/>
-              <textarea type="text" name="feedback" min="5" max="50" placeholder="FEEDBACK" class="inputs" required/></textarea>
-              <input type="rating" name="rating" min="1" max="5" placeholder="RATING (1-5)" class="inputs" required/>
-              <button class="submit" name="submit" class="submit">SUBMIT</button>
+              <input type="text" name="username" minlength="5" maxlength="30" placeholder="USERNAME" class="inputs" required />
+              <textarea name="feedback" minlength="5" maxlength="500" placeholder="FEEDBACK" class="inputs" required></textarea>
+              <input type="number" name="rating" min="1" max="5" placeholder="RATING (1-5)" class="inputs" required />
+              <button type="submit" class="submit">SUBMIT</button>
             </p>
           </form>
         </div>

@@ -1,37 +1,40 @@
 <?php
-    $host = "localhost";
-    $user = "root";
-    $password = "";
-    $database = "feedback";
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "feedback";
 
-    $connect = mysqli_connect($host, $user, $password, $database);
-    
-    if(!$connect){
-        die("Koneksi gagal". mysqli_connect_error());
-    }
-    $name = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    $feed = filter_input(INPUT_POST, 'feedback', FILTER_SANITIZE_STRING);
-    $rate = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    echo 'No feedback was submitted.';
+    exit;
+}
 
-    $connect = new mysqli($host, $user, $password, $database);
-    if ($connect->connect_error) {
-        die("Koneksi gagal: " . $connect->connect_error);
-    } else {
-        $stmt = $connect->prepare("INSERT INTO `feedback` (username, feedback, rating) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssis", $name, $feed, $rate);
-        $stmt->execute();
-    }  
-    if ($stmt === false){
-        die('Prepare failed:' . $connect->error);
-    }
-    $stmt->bind_param("sss", $name, $feed, $rate);
+$name = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
+$feed = trim(filter_input(INPUT_POST, 'feedback', FILTER_SANITIZE_STRING));
+$rate = trim(filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_NUMBER_INT));
 
-    if($stmt->execute()){
-        echo "Your feedback has been recorded";
-    } else {
-        echo "error;" . $stmt->error;
-    }
+if (empty($name) || empty($feed) || empty($rate)) {
+    die('Please complete all fields before submitting.');
+}
 
-    $stmt->close();
-    $conn->close();
+$connect = mysqli_connect($host, $user, $password, $database);
+if (!$connect) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+$stmt = mysqli_prepare($connect, "INSERT INTO `feedback` (`username`, `feedback`, `rating`) VALUES (?, ?, ?)");
+if (!$stmt) {
+    die('Prepare failed: ' . mysqli_error($connect));
+}
+
+mysqli_stmt_bind_param($stmt, "ssi", $name, $feed, $rate);
+
+if (mysqli_stmt_execute($stmt)) {
+    echo "Your feedback has been recorded.";
+} else {
+    echo "Error: " . mysqli_stmt_error($stmt);
+}
+
+mysqli_stmt_close($stmt);
+mysqli_close($connect);
 ?>

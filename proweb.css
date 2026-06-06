@@ -749,6 +749,10 @@ h2.Engine {
   margin-bottom: 5px;
   border: 2px solid var(--highlight);
   font-weight: 400;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 .used-card {
   background-color: var(--used);

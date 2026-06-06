@@ -1853,6 +1853,7 @@ h6#side.side{
   margin-bottom: 10px;
   font-family: "Jetbrains Mono", monospace;
   max-width: 1100px;
+  box-sizing: border-box !important;
 }
 inputs:-webkit-autofill,
 inputs:-webkit-autofill:hover,

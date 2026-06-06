@@ -1696,7 +1696,7 @@ h6#side.side{
 .ra:not(:hover)
 {
   transform: translateY(0);
-  transition: transform 1s ease;
+  transition: transform 0.5s ease;
 }
 .ra:active
 {
@@ -1848,11 +1848,10 @@ inputs:-webkit-autofill-active{
 }
 ::view-transition-group(contain){
   animation-timing-function: ease;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 ::view-transition-old(contain){
   animation-name: slideOutDown; 
-  
 }
   @-webkit-keyframes slideOutDown {
   from {
@@ -1881,8 +1880,8 @@ inputs:-webkit-autofill-active{
   .animate__slideOutDown {
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
   }
@@ -1912,14 +1911,14 @@ inputs:-webkit-autofill-active{
   .animate__slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
   /* Sliding exits */
 }
 ::view-transition-new(contain){
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: slideInUp;
 }
 main{

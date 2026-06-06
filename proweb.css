@@ -1846,14 +1846,14 @@ inputs:-webkit-autofill-active{
 @view-transition{
   navigation: auto;
 }
-::view-transition-group(contain){
+::view-transition-group(.contain){
   animation-timing-function: ease;
   animation-duration: 1s;
 }
-::view-transition-old(contain){
+::view-transition-old(.contain){
   animation-name: slideOutRight; 
 }
-::view-transition-new(contain){
+::view-transition-new(.contain){
   animation-duration: 1s;
   animation-name: slideInLeft;
 }

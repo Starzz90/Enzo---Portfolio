@@ -94,10 +94,8 @@ tog.addEventListener("click", function(e){
 var mini = document.getElementById("minis");
 var achieved = document.getElementById("archie");
 
-if(mini){
-  mini.addEventListener("click", function(e){
-    window.location.href = "https://github.com/Starzz90/MINI-PROJECTS";
-  });
+function minis(){
+  window.location.href = "https://github.com/Starzz90/MINI-PROJECTS";
 }
 if(achieved){
   achieved.addEventListener("click", function(e){

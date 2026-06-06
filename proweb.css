@@ -354,7 +354,7 @@ h1 {
 }
 @media (max-width: 768px) {
   .Project-card {
-    max-height: 400px;
+    max-height: 450px;
     margin-right: 0;
   }
   .Project-card-n{

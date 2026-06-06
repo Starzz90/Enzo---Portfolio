@@ -198,6 +198,7 @@ body {
   margin-bottom: 20px;
   margin-left: 0;
   margin-right: 0;
+  column-gap: 12px;
 }
 @media (max-width: 768px) {
   .double-column-auto {
@@ -374,6 +375,11 @@ h1 {
   height: fit-content;
   padding: 5px 20px;
   font-size: 13px;
+}
+.redirect:active,
+.reidrect:hover{
+  background-color:hsl(235, 100%, 62%);
+  border-color:hsl(233, 100%, 21%);
 }
 .project-img {
   object-fit: cover;
@@ -1171,6 +1177,7 @@ li.achieve {
   align-items: center;
   justify-content: flex-end;
   font-weight: bolder;
+  color: var(--used);
 }
 .left {
   display: flex;
@@ -1245,11 +1252,6 @@ a {
   vertical-align: top;
   padding-bottom: 20px;
 }
-.left{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
 .right{
   display: flex;
   align-items: center;
@@ -1264,7 +1266,6 @@ a {
   letter-spacing: 1px;
 }
 .specs {
-  color: var(--highlight);
   font-size: 17px;
   letter-spacing: 1px;
   display: flex;

@@ -468,11 +468,13 @@ h2.Engine {
   left: 0;
   
 }
-.line {
-  border: 2px solid var(--cards-above-tools);
-  width: 100%;
-  height: auto;
-  margin-top: 15px;
+.cert-tag-n{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  left: 0;
+  
 }
 .cert-tag-BOTTOM {
   display: flex;
@@ -514,7 +516,7 @@ h2.Engine {
   height: auto;
   max-height: auto;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 15px;
   padding-bottom: 10px;
   padding-top: 5px;
   overflow-x: hidden;
@@ -531,7 +533,7 @@ h2.Engine {
 }
 @media(max-widtth: 768px){
   .Project-desc{
-    flex-direction: row;
+    flex-direction: row !important;
   }
 }
 .project {
@@ -1933,4 +1935,10 @@ main{
   from{
     translate: 100vw;
   }
+}
+.line{
+  display: flex;
+  align-items: CENTER;
+  justify-content: flex-start;
+  gap: 10px;
 }

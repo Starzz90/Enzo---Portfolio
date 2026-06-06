@@ -1843,18 +1843,15 @@ inputs:-webkit-autofill-active{
 .hidden:hover{
   display: block;
 }
-@view-transition{
-  navigation: auto;
-}
 ::view-transition-group(.contain){
   animation-timing-function: ease;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 ::view-transition-old(.contain){
   animation-name: slideOutRight; 
 }
 ::view-transition-new(.contain){
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: slideInLeft;
 }
 main{

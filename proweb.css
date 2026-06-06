@@ -320,6 +320,22 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.Project-card-n {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  margin-top: 30px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--achievement);
+  max-height: 500px;
+  position: relative;
+  margin: 20px 0;
+  background-color: var(--gradient);
+}
 .Project-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   margin-top: 30px;
@@ -339,6 +355,10 @@ h1 {
 @media (max-width: 768px) {
   .Project-card {
     max-height: 400px;
+    margin-right: 0;
+  }
+  .Project-card-n{
+    max-height: 450px;
     margin-right: 0;
   }
 }

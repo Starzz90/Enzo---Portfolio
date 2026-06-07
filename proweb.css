@@ -41,6 +41,7 @@ html {
   max-width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  cursor: crosshair;
 }
 
 body {
@@ -392,6 +393,7 @@ h1 {
   max-height: 290px;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  opacity: 0.8;
 }
 .section-engineer {
   width: 100%;
@@ -412,6 +414,9 @@ h2.Engine {
   width: 100%;
   height: fit-content;
   border: 1px solid var(--cards-above);
+  border-right-width: 5px;
+  border-left-width: 5px;
+  border-right-color: var(--used);
   margin-right: 0; /* remove right margin for symmetric spacing */
 }
 .work-card {
@@ -545,6 +550,10 @@ h3{
   letter-spacing: 2px;
   font-weight: 900;
   color: rgb(230, 227, 224);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .bottom-card {
   display: flex;
@@ -1698,6 +1707,7 @@ h4#side.side {
   padding-left: 20px;
   font-size: 20px;
   padding-top: 20px;
+  color: var(--used);
 }
 h6#side.side{
   font-size: 15px;
@@ -1902,6 +1912,9 @@ inputs:-webkit-autofill-active{
   margin-top: 20px;
   border: 2px solid var(--cards-above);
   cursor:crosshair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .achieve-others:hover,
 .achieve-others:active{
@@ -2044,7 +2057,7 @@ main{
   display: flex;
   align-items: center;
   padding: 5px 10px;
-  background-color: var(--cards);
+  background-color: var(--cards-above-dark);
   margin-right: 5px;
   gap: 3px;
 }

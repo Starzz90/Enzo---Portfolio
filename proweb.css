@@ -531,7 +531,7 @@ h3{
 @media (max-width: 768px) {
   .specs-card {
     width: 100%;
-    max-width: 450px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -2011,4 +2011,9 @@ main{
   display: grid;
   place-content: center;
   box-sizing: border-box;
+}
+@media(max-width: 768px){
+  .boxed{
+    padding: 10px 10px;
+  }
 }

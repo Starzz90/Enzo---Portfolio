@@ -481,10 +481,10 @@ h2.Engine {
 }
 @media (max-width: 768px) {
   .tag {
-    font-size: 10px;
+    font-size: 11px;
   }
   .tagt {
-    font-size: 10px;
+    font-size: 11px;
   }
   .cert, .tag-e {
     font-size: 15px;
@@ -2030,7 +2030,7 @@ main{
   font-size: 13px;
   display: flex;
   align-items: center;
-  padding: 5px 20px;
+  padding: 5px 10px;
   background-color: var(--cards);
   margin-right: 5px;
   gap: 3px;

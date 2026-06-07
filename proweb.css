@@ -160,7 +160,7 @@ body {
 .triple-column {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: repeat(minmax(600px, 1fr));
+  grid-auto-columns: repeat(minmax(1800px, 1fr));
   gap: 20px;
   margin-bottom: 5px;
 }
@@ -380,6 +380,8 @@ h1 {
   height: fit-content;
   padding: 5px 20px;
   font-size: 13px;
+  font-family: "Jetbrains Mono", monospace;
+  color: var(--text);
 }
 .redirect:active,
 .redirect:hover{
@@ -532,6 +534,8 @@ h3{
   justify-content: space-between;
   margin-top: 10px;
   font-size: 20px;
+  vertical-align: bottom;
+  margin-top: auto;
 }
 .work-content {
   color: var(--work-content);
@@ -1765,10 +1769,13 @@ h6#side.side{
   position: relative;
   background-color: #000000;
 }
-.ra {
+.ra ,.rar{
   padding: 20px 20px;
   background-color: var(--achieve);
   z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .ra:hover
 {
@@ -1776,10 +1783,15 @@ h6#side.side{
   transition: transform 1.5s ease;
   background-size: cover;
 }
+.rar:hover{
+  transform: translateY(-50%);
+  transition: transform 1.5s ease;
+  background-size: cover;
+}
 .ra:not(:hover)
 {
   transform: translateY(0);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(.06, .67, .97, .21);
 }
 .ra:active
 {
@@ -2026,6 +2038,9 @@ main{
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  border: 1px solid var(--cards-above);
+  opacity: 0.5;
+  margin: 10px 0px;
 }
 .liner{
   display: flex;
@@ -2069,4 +2084,15 @@ main{
   width: 8px;
   height: 8px;
   animation: pulsed 1s infinite;
+}
+.abs-center{
+  display: inline-block;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 9999;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: auto;
+  height: auto;
 }

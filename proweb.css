@@ -381,9 +381,9 @@ h1 {
   font-size: 13px;
 }
 .redirect:active,
-.reidrect:hover{
-  background-color:hsl(235, 100%, 62%);
-  border-color:hsl(233, 100%, 21%);
+.redirect:hover{
+  background-color:var(--accent);
+  border-color:hsl(115, 100%, 35%);
 }
 .project-img {
   object-fit: cover;
@@ -1719,6 +1719,8 @@ h6#side.side{
 }
 .STATS {
   margin-top: 30px;
+  padding-left: 30px;
+  font-size: 15px;
 }
 .achieve-card {
   width: 100%;
@@ -2021,4 +2023,22 @@ main{
   .boxed{
     padding: 10px 10px;
   }
+}
+.online-stats{
+  color: var(--accent);
+  font-family: "Jetbrains Mono", monospace;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: var(--cards);
+  margin-right: 5px;
+  gap: 3px;
+}
+.online-circle{
+  border: 1px solid transparent;
+  background-color: var(--accent);
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
 }

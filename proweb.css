@@ -484,7 +484,7 @@ h2.Engine {
     font-size: 12px;
   }
   .tagt {
-    font-size: 10px;
+  font-size: 9px;
   }
   .cert, .tag-e {
     font-size: 15px;
@@ -674,6 +674,17 @@ h3{
     box-shadow: 0 0 0 10px rgba(236, 65, 17, 0);
   }
   100% {
+    box-shadow: 0 0 0 0 rgba(236, 65, 17, 0);
+  }
+}
+@keyframes pulsed {
+  0%{
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+  70%{
+    box-shadow: 0 0 0 5px rgba(236, 65, 17, 0);
+  }
+  100%{
     box-shadow: 0 0 0 0 rgba(236, 65, 17, 0);
   }
 }
@@ -898,8 +909,9 @@ h3.STARCORP {
   letter-spacing: 6px;
 }
 h3.Exp {
-  letter-spacing: 30px;
+  letter-spacing: 10px;
   text-align: center;
+  margin-bottom: 10px;
 }
 @media (max-width: 768px) {
   h3.Exp {
@@ -1677,6 +1689,7 @@ li {
   width: 100%;
   height: auto;
   border-left: 5px solid var(--header);
+  color: var(--used);
 }
 .list:active {
   background-color: var(--achievement);
@@ -2041,4 +2054,5 @@ main{
   border-radius: 50%;
   width: 8px;
   height: 8px;
+  animation: pulsed 1s infinite;
 }

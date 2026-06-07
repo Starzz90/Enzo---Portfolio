@@ -478,9 +478,10 @@ h2.Engine {
   color: var(--achievement);
   font-size: 15px;
   font-family: "Jetbrains Mono", monospace;
-  width: auto;
-  max-width: 300px;
+  width: 100%;
+  max-width: 600px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
 }
@@ -965,7 +966,7 @@ h3 {
 }
 .occupation {
   color: var(--highlight);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -1006,7 +1007,7 @@ h3 {
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  padding:17px;
+  padding:13px;
   transition: background-color 0.3s ease;
   box-shadow: rgba(255, 255, 255, 0.167) 0px 6px 8px;
   margin-left: 5px;
@@ -1022,7 +1023,7 @@ h3 {
 }
 #py.image-container {
   background-color: rgb(30, 27, 98);
-  padding: 13px;
+  padding: 10px;
 }
 #php.image-container {
   background-color: rgb(132, 126, 174);
@@ -1698,7 +1699,7 @@ li {
   width: 100%;
   height: auto;
   border-left: 5px solid var(--header);
-  color: var(--used);
+  color: var(--accent);
 }
 .list:active {
   background-color: var(--achievement);

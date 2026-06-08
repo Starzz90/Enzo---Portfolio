@@ -58,7 +58,7 @@ html {
 body {
   min-height: 100vh;
   background-color: var(--background-color);
-  background-image: radial-gradient(#d1d1d13e 1px, transparent 1px);
+  background-image: radial-gradient(#d1d1d118 1px, transparent 1px);
   background-size: 20px 20px;
   color: var(--text);
   font-family: "Jetbrains Mono", Monospace;

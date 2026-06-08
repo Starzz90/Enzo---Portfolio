@@ -1,6 +1,6 @@
 
 :root {
-  --background-color: #030303;
+  --background-color: #171717c6;
   --header: #ecfeff;
   --cards: #13141562;
   --name: #000000c5;
@@ -29,7 +29,7 @@
   --used: hsl(23, 100%, 46%);
   --HOVERED: hsl(23, 100%, 61%);
   --accent: hsl(123, 100%, 45%);
-  --cards-above-dark: hsla(0, 0%, 11%, 0.718);
+  --cards-above-dark: hsla(0, 0%, 0%, 0.638);
 }
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
 *::before,
@@ -54,7 +54,11 @@ html {
   scroll-behavior: smooth;
   cursor: crosshair;
 }
-
+.back{
+  background-image: radial-gradient(rgba(209, 209, 209, 0.207) 1px, rgba(23, 23, 23, 0) 1px), linear-gradient(to right top, rgb(255, 102, 0), rgb(228, 91, 0), rgb(119, 48, 0), rgb(31, 12, 0), rgb(16, 6, 0), rgb(4, 4, 4), rgb(8, 3, 0), rgb(2, 2, 2));
+  background-size: 20px 20px, cover;
+  background-repeat: repeat, no-repeat;
+}
 body {
   min-height: 100vh;
   background-color: var(--background-color);
@@ -66,7 +70,6 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   display: block;
@@ -128,7 +131,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 40px;
   right: 0;
 }
 
@@ -430,7 +432,7 @@ h2.Engine {
   margin: 40px 0px;
 }
 .specs-card {
-  background-color: var(--cards);
+  background-color: var(--cards-above-dark);
   padding: 10px 10px;
   box-sizing: border-box;
   width: 100%;
@@ -445,7 +447,7 @@ h2.Engine {
   width: 100%;
   max-width: 100%;
   height: 100%;
-  background-color: var(--cards);
+  background-color: var(--cards-above-dark);
   margin-left: 0;
   border: 3px solid var(--cards-above);
   padding: 20px 30px;
@@ -672,7 +674,7 @@ h3{
 .LIVE-BAR {
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: var(--sidebar);
+  background-color: var(--background-color);
   border-right: 2px solid transparent;
   border-radius: 5px;
   position: fixed;
@@ -1304,7 +1306,6 @@ a {
   width: 100%;
   height: 50px;
   background-color: var(--below);
-  margin-top: 80px;
   overflow-x: auto;
   bottom: 0;
   left: 0;
@@ -1500,7 +1501,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
 }
 .achievement-link {
   background-color: var(--achievement);
@@ -1638,7 +1638,7 @@ h2.ach {
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: var(--sidebar);
+  background-color: var(--background-color);
   border-right: 2px solid transparent;
   border-radius: 5px;
   position: fixed;
@@ -1741,7 +1741,7 @@ li {
   width: 100%;
   height: auto;
   border-left: 5px solid var(--header);
-  color: var(--accent);
+  color: var(--used);
 }
 .list:active {
   background-color: var(--achievement);

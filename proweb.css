@@ -29,7 +29,7 @@
   --used: hsl(23, 100%, 46%);
   --HOVERED: hsl(23, 100%, 61%);
   --accent: hsl(123, 100%, 45%);
-  --cards-above-dark: hsla(0, 0%, 0%, 0.638);
+  --cards-above-dark: hsla(0, 0%, 0%, 0.751);
 }
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
 *::before,
@@ -55,7 +55,7 @@ html {
   cursor: crosshair;
 }
 .back{
-  background-image: radial-gradient(rgba(209, 209, 209, 0.207) 1px, rgba(23, 23, 23, 0) 1px), linear-gradient(to right top, rgb(255, 102, 0), rgb(228, 91, 0), rgb(119, 48, 0), rgb(31, 12, 0), rgb(16, 6, 0), rgb(4, 4, 4), rgb(8, 3, 0), rgb(2, 2, 2));
+  background-image: radial-gradient(rgba(209, 209, 209, 0.207) 1px, rgba(23, 23, 23, 0) 1px), linear-gradient(to right top, rgb(255, 102, 0), rgb(228, 91, 0), rgb(119, 48, 0), rgb(31, 12, 0),rgb(20, 10, 0), rgb(16, 6, 0), rgb(4, 4, 4), rgb(8, 3, 0), rgb(2, 2, 2));
   background-size: 20px 20px, cover;
   background-repeat: repeat, no-repeat;
 }

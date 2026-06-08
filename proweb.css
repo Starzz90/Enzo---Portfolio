@@ -362,6 +362,9 @@ h1 {
   position: relative;
   background-color: var(--gradient);
 }
+.Project-card:hover, .Project-card-n:hover{
+  animation: glow 3s infinite;
+}
 @media (max-width: 768px) {
   .Project-card {
     max-height: 450px;
@@ -1094,6 +1097,7 @@ h3 {
   .image-container {
     width: 75px;
     height: auto;
+    max-height: 75px;
   }
   #On.image-container {
     background-color: rgb(36, 36, 36);
@@ -1723,9 +1727,9 @@ li {
 }
 h4#side.side {
   padding-left: 20px;
-  font-size: 20px;
-  padding-top: 20px;
+  font-size: 35px;
   color: var(--used);
+  font-family: "Bebas Neue", sans-serif;
 }
 h6#side.side{
   font-size: 15px;
@@ -1782,6 +1786,7 @@ h6#side.side{
   position: relative;
   background-color: #000000;
 }
+
 .ra ,.rar{
   padding: 20px 20px;
   background-color: var(--achieve);
@@ -2072,6 +2077,7 @@ main{
 .boxed{
   width: 100%;
   aspect-ratio: 1.05/1;
+  height: 100%;
   padding: 20px 20px;
   border: 3px solid var(--cards-above);
   display: grid;

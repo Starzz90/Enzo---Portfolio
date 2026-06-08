@@ -36,6 +36,17 @@
 *::after {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'BaseNeue-Black';
+  src: url('https://static.wfonts.com/data/2024/01/08/base-neue/BaseNeue-Black.ttf') format('ttf');
+  font-display: swap;
+}
+
+#preview-render {
+  font-family: 'BaseNeue-Black', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 32px;
+  color: #373c44;
+}
 
 html {
   max-width: 100%;
@@ -880,10 +891,9 @@ h1 {
   font-size: 70px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
-  font-weight: bolder;
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1px;
+  font-weight: 900;
+  font-family: 'BaseNeue-Black', sans-serif;
+  letter-spacing: -4px;
   word-spacing: 5px;
 }
 
@@ -1680,7 +1690,7 @@ li {
     max-height: 240px;
   }
   h1 {
-    font-size: 60px;
+    font-size: 55px;
   }
 }
 
@@ -1695,6 +1705,9 @@ li {
     grid-auto-flow: row;
     grid-auto-columns: 1fr;
     column-gap: 12px;
+  }
+  h1{
+    font-size: 50px;
   }
 }
 
@@ -2041,6 +2054,12 @@ main{
   border: 1px solid var(--cards-above);
   opacity: 0.5;
   margin: 10px 0px;
+}
+.lined{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 .liner{
   display: flex;

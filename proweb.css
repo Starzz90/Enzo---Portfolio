@@ -370,6 +370,12 @@ h1 {
     max-height: 450px;
     margin-right: 0;
   }
+  .right{
+    font-size: 12px;
+  }
+  .left{
+    font-size: 13px;
+  }
   .Project-card-n{
     max-height: 450px;
     margin-right: 0;
@@ -1224,11 +1230,26 @@ li.achieve {
   justify-content: flex-end;
   font-weight: bolder;
   color: var(--used);
+  font-size: 15px;
 }
 .left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-size: 17px;
+}
+@media(max-width: 768px){
+  .specs{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 0;
+
+  }
 }
 .achieve {
   display: flex;
@@ -2101,6 +2122,7 @@ main{
   background-color: var(--cards-above-dark);
   margin-right: 5px;
   gap: 3px;
+  display: flex;
 }
 .online-circle{
   border: 1px solid transparent;

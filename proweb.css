@@ -2,7 +2,7 @@
 :root {
   --background-color: #101010ca;
   --header: #ecfeff;
-  --cards: #13141562;
+  --cards: #00000077;
   --name: #000000c5;
   --cards-above: #343434;
   --cards-above-tools: #3d3d3d;
@@ -446,13 +446,11 @@ h2.Engine {
   width: 100%;
   max-width: 100%;
   height: 100%;
-  background-color: var(--cards-above-dark);
   margin-left: 0;
   border: 3px solid var(--cards-above);
-  padding: 20px 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 15px;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -460,6 +458,9 @@ h2.Engine {
   min-width: 0; /* allow shrinking inside flex containers */
   flex: 1 1 auto;
   box-sizing: border-box;
+  position: relative;
+  padding: 20px 20px;
+  background-color: var(--cards);
 }
 @media (max-width: 768px) {
   .work-card .achieve-card {
@@ -486,6 +487,7 @@ h2.Engine {
   font-size: 25px;
   font-family: "Jetbrains Mono", monospace;
   color: var(--cert);
+  margin-right: 20px;
 }
 .tag {
   color: var(--achievement);

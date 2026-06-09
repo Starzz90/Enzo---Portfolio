@@ -1313,6 +1313,7 @@ a {
   padding: 5px 10px;
   overflow-y: hidden;
   margin-top: 70px;
+  vertical-align: bottom;
 }
 .differ{
   display: none;

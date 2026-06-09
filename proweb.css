@@ -54,27 +54,12 @@ html {
   scroll-behavior: smooth;
   cursor: crosshair;
 }
-.back{
+body {
   background-image: radial-gradient(rgba(209, 209, 209, 0.207) 1px, rgba(23, 23, 23, 0) 1px), linear-gradient(to right top, rgb(255, 102, 0), rgb(228, 91, 0), rgb(119, 48, 0), rgb(31, 12, 0),rgb(20, 10, 0), rgb(16, 6, 0), rgb(4, 4, 4), rgb(8, 3, 0), rgb(2, 2, 2));
   background-size: 20px 20px, cover;
   background-repeat: repeat, no-repeat;
   min-height: 100vh;
   background-color: var(--background-color);
-  color: var(--text);
-  font-family: "Jetbrains Mono", Monospace;
-  font-weight: 480;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: block;
-}
-body {
-  min-height: 100vh;
-  background-color: var(--background-color);
-  background-image: radial-gradient(#d1d1d118 1px, transparent 1px);
-  background-size: 20px 20px;
   color: var(--text);
   font-family: "Jetbrains Mono", Monospace;
   font-weight: 480;

@@ -1875,7 +1875,6 @@ h6#side.side{
   opacity: 70%;
   height: auto;
   width: 100%;
-  transform: translateY(50%);
   transform: translateX(0%);
   z-index: 1;
   bottom: 0;
@@ -1883,6 +1882,26 @@ h6#side.side{
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+}
+.certif-exp{
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  opacity: 70%;
+  height: auto;
+  width: 100%;
+  transform: translateX(0%);
+  z-index: 1;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+@media(min-width: 1100px){
+  .certif{
+    margin-bottom: 60px;
+  }
 }
 .box{
   width: 100%;
@@ -1902,6 +1921,8 @@ h6#side.side{
 .certs {
     overflow-y: auto;
     height: auto;
+    vertical-align: middle;
+    
 }
 .low{
   opacity: 0.7;

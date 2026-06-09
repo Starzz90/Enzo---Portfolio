@@ -171,7 +171,7 @@ body {
   grid-auto-flow: column;
   grid-auto-columns: repeat(minmax(1800px, 1fr));
   gap: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .triple-column-count {
   display: grid;
@@ -512,8 +512,11 @@ h2.Engine {
   .tagt {
   font-size: 9px;
   }
-  .cert, .tag-e {
+  .tag-e {
     font-size: 15px;
+  }
+  .cert{
+    font-size: 20px;
   }
   h2.job {
     font-size: 18px;
@@ -1239,7 +1242,6 @@ li.achieve {
 @media(max-width: 768px){
   .specs{
     display: flex;
-    flex-direction: column;
     position: relative;
     align-items: flex-start;
     text-align: left;

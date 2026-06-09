@@ -1,6 +1,6 @@
 
 :root {
-  --background-color: #101010;
+  --background-color: #101010ca;
   --header: #ecfeff;
   --cards: #13141562;
   --name: #000000c5;
@@ -986,7 +986,6 @@ h3 {
 .text-center {
   color: var(--text);
   font-size: 12px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1241,10 +1240,12 @@ li.achieve {
   align-items: center;
   justify-content: flex-start;
   font-size: 17px;
+  flex-direction: row;
 }
 @media(max-width: 768px){
   .specs{
     display: flex;
+    flex-direction: column;
     position: relative;
     align-items: flex-start;
     text-align: left;
@@ -1337,6 +1338,16 @@ a {
   letter-spacing: 1px;
 }
 .specs {
+  font-size: 17px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.127);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.specs-data{
   font-size: 17px;
   letter-spacing: 1px;
   display: flex;

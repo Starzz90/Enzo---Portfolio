@@ -1907,6 +1907,11 @@ h6#side.side{
     margin-bottom: 60px;
   }
 }
+@media(max-wdith: 768px){
+  .certif{
+    margin-bottom: 30px;
+  }
+}
 .box{
   width: 100%;
   max-width: 300px;

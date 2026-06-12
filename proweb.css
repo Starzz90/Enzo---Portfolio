@@ -501,7 +501,7 @@ h2.Engine {
   flex-wrap: wrap;
 }
 .tagt, .tag-e {
-  color: var(--achievement);
+  color: var(--used);
   font-size: 15px;
   font-family: "Jetbrains Mono", monospace;
   width: 100%;

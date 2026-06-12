@@ -1624,8 +1624,11 @@ h2.ach {
   }
   .olympiad-title,
   .olympiad-rank {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
     text-align: left;
+
     white-space: normal;
   }
   .olympiad-rank {

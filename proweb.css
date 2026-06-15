@@ -17,7 +17,7 @@
   --shadow: #9c9c9c;
   --achievement: #434343;
   --project-card: rgba(82, 82, 82, 0.811);
-  --sidebar: rgba(255, 255, 255, 0.071);
+  --sidebar: #090d178e;
   --sidebar-width: 180px;
   --content-max: 1200px;
   --content-half: calc(var(--content-max) / 2);
@@ -685,7 +685,7 @@ h3{
 .LIVE-BAR {
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: var(--background-color);
+  background-color: var(--sidebar);
   border-right: 2px solid transparent;
   border-radius: 5px;
   position: fixed;
@@ -704,6 +704,7 @@ h3{
   overflow-y: auto;
   padding-top: 0;
   font-size: 20px;
+  backdrop-filter: blur(10px);
 }
 .pulser {
   background-color: var(--highlight);
@@ -1665,7 +1666,7 @@ h2.ach {
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: var(--background-color);
+  background-color: var(--sidebar);
   border-right: 2px solid transparent;
   border-radius: 5px;
   position: fixed;

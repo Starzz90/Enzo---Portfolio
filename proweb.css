@@ -60,6 +60,7 @@ body {
   background-size: 20px 20px, cover;
   background-repeat: repeat, no-repeat;
   min-height: 100vh;
+  animation: backgroundAnimation 40s linear infinite;
   background-color: var(--background-color);
   color: var(--text);
   font-family: "Jetbrains Mono", Monospace;
@@ -71,7 +72,17 @@ body {
   overflow-y: auto;
   display: block;
 }
-
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    background-position: 100% 100%, 0 0;
+  }
+  100%{
+    background-position: 200% 200%, 0 0;
+  }
+}
 .html {
   scroll-behavior: smooth;
 }

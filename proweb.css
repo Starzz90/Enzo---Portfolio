@@ -1331,6 +1331,7 @@ a {
   background-color: var(--below);
   overflow-x: auto;
   bottom: 0;
+  padding-bottom: 1000000000000000000000000000000000px;
   left: 0;
   padding: 5px 10px;
   overflow-y: hidden;

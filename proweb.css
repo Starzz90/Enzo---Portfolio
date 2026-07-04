@@ -445,23 +445,23 @@ h1 {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   opacity: 1;
-  animation: brightness 3s infinite;
+  animation: brightness 3s ease-in-out infinite alternate;
 }
 @keyframes brightness{
   0%{
-    filter: brightness(0.8);
+    filter: brightness(1);
   }
   25%{
-    filter: brightness(0.6);
+    filter: brightness(0.8);
   }
   50%{
-    filter: brightness(0.3);
-  }
-  75%{
     filter: brightness(0.6);
   }
-  100%{
+  75%{
     filter: brightness(0.8);
+  }
+  100%{
+    filter: brightness(1);
   }
 }
 .section-engineer {

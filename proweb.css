@@ -83,6 +83,15 @@ body {
     background-position: 200% 200%, 0 0;
   }
 }
+@keyframes colorshifter {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+
+}
 .html {
   scroll-behavior: smooth;
 }
@@ -436,6 +445,21 @@ h1 {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   opacity: 0.8;
+  animation: brightness 5s infinite;
+}
+@keyframes brightness{
+  0%{
+    filter: brightness(0.8);
+  }
+  25%{
+    filter: brightness(0.6);
+  }
+  50%{
+    filter: brightness(0.5);
+  }
+  100%{
+    filter: brightness(0.4);
+  }
 }
 .section-engineer {
   width: 100%;
@@ -630,7 +654,7 @@ h3{
   vertical-align: bottom;
   z-index: 40;
 }
-@media(max-widtth: 768px){
+@media(max-width: 768px){
   .Project-desc{
     flex-direction: row !important;
   }

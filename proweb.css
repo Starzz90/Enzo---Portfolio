@@ -444,7 +444,7 @@ h1 {
   max-height: 290px;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  opacity: 0.8;
+  opacity: 1;
   animation: brightness 3s infinite;
 }
 @keyframes brightness{

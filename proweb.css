@@ -392,7 +392,7 @@ h1 {
   background-color: var(--gradient);
 }
 .Project-card:hover, .Project-card-n:hover{
-  animation: glow 3s infinite;
+  box-shadow: var(--used) 0px 2px 4px 2px;
 }
 @media (max-width: 768px) {
   .Project-card {
@@ -1762,7 +1762,9 @@ li {
     max-height: 260px;
   }
 }
-
+.project-img:hover{
+  filter: brightness(1) !important;
+}
 @media (max-width: 992px) {
   .contain {
     width: 100%;

@@ -119,6 +119,7 @@ body {
 .top-option {
   border: 2px solid transparent;
   border-radius: 50px;
+  padding: 0px 4px;
 }
 .top-option:hover {
   background-color:  rgba(57, 57, 57, 0.6);

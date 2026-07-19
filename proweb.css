@@ -454,13 +454,26 @@ h1 {
   border-radius: 2px;
   width: fit-content;
   height: fit-content;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: "Jetbrains Mono", monospace;
+  color: var(--text);
+}
+.redirect-p{
+  background-color: var(--used);
+  border: 2px solid var(--highlight);
+  border-radius: 2px;
+  width: fit-content;
+  height: fit-content;
   padding: 5px 20px;
   font-size: 13px;
   font-family: "Jetbrains Mono", monospace;
   color: var(--text);
 }
 .redirect:active,
-.redirect:hover {
+.redirect:hover,
+.redirect-p:active,
+.redirect-p:hover {
   background-color: var(--accent);
   border-color: hsl(115, 100%, 35%);
 }

@@ -78,27 +78,50 @@ if (ra) {
   });
 }
 
-function buttonToggle(){
+function buttonToggle() {
   document.getElementById("hidden").style.display = "block";
 }
 
 var hidden = document.getElementById("hidden");
 var tog = document.getElementById("bugle");
 
-if(tog){
-tog.addEventListener("click", function(e){
-  hidden.classList.toggle("hovered");
-});
+if (tog) {
+  tog.addEventListener("click", function (e) {
+    hidden.classList.toggle("hovered");
+  });
 }
 
 var mini = document.getElementById("minis");
 var achieved = document.getElementById("archie");
 
-function minis(){
+function minis() {
   window.location.href = "https://github.com/Starzz90/MINI-PROJECTS";
 }
-if(achieved){
-  achieved.addEventListener("click", function(e){
+if (achieved) {
+  achieved.addEventListener("click", function (e) {
     window.location.href = "https://starzz90.github.io/EnzoSite";
   });
+}
+
+function updateCertificateLinks() {
+  const cards = document.querySelectorAll(".achieve-card");
+
+  cards.forEach(function (card) {
+    const link = card.querySelector(".redirect");
+    const image = card.querySelector(".certs img");
+
+    if (!link || !image) return;
+
+    const imageSrc = image.getAttribute("src");
+    if (imageSrc) {
+      link.setAttribute("href", imageSrc);
+    }
+  });
+}
+
+if (
+  document.querySelector(".achieve-card") &&
+  document.querySelector(".redirect")
+) {
+  window.addEventListener("load", updateCertificateLinks);
 }

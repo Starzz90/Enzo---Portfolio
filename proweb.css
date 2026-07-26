@@ -220,6 +220,12 @@ body {
   grid-auto-flow: row;
   grid-auto-rows: repeat(minmax(200px, 1fr));
 }
+.one-line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 5px;
+}
 .triple-column {
   display: grid;
   grid-auto-flow: column;
@@ -459,6 +465,18 @@ h1 {
   font-family: "Jetbrains Mono", monospace;
   color: var(--text);
 }
+.redirect-media {
+  background-color: var(--cards-above);
+  border: 2px solid var(--background-color);
+  border-radius: 2px;
+  width: 100%;
+  height: fit-content;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: "Jetbrains Mono", monospace;
+  color: var(--text);
+  margin-left: 5px;
+}
 .redirect-p{
   background-color: var(--used);
   border: 2px solid var(--highlight);
@@ -473,9 +491,12 @@ h1 {
 .redirect:active,
 .redirect:hover,
 .redirect-p:active,
-.redirect-p:hover {
+.redirect-p:hover,
+.redirect-media:hover,
+.redirect-media:active {
   background-color: var(--accent);
   border-color: hsl(115, 100%, 35%);
+  color: var(--cards-above-dark);
 }
 .project-img {
   object-fit: cover;
@@ -2103,6 +2124,15 @@ inputs:-webkit-autofill-active {
 .achieve-others:hover,
 .achieve-others:active {
   background-color: var(--highlight);
+}
+.contact{
+  padding: 5px 20px;
+  fill: var(--used);
+}
+.contact-icon:hover{
+  fill: var(--accent);
+  width: 40px;
+  height: 40px;
 }
 .hidden {
   display: none;

@@ -102,7 +102,6 @@ if (achieved) {
     window.location.href = "https://starzz90.github.io/EnzoSite";
   });
 }
-
 function updateCertificateLinks() {
   const cards = document.querySelectorAll(".achieve-card");
 

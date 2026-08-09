@@ -538,7 +538,7 @@ h1 {
 .redirect-media:active {
   background-color: var(--accent);
   border-color: hsl(115, 100%, 35%);
-  color: var(--cards-above-dark);
+  color: #000000;
 }
 .project-img {
   object-fit: cover;

@@ -391,6 +391,9 @@ h1 {
   margin-left: auto !important;
   margin-right: auto !important;
   animation: glow 2s infinite;
+  flex-shrink: 2;
+  margin-left: auto;
+  margin-right: auto;
 }
 .results-tag{
   color: hsl(39, 61%, 66%);

@@ -410,6 +410,18 @@ h1 {
 @media(max-width: 768px){
   .results-tag{
     font-size: 20px;
+    
+  }
+  .results{
+    width: 100%;
+    padding: 10px 10px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+@media(max-width: 460px){
+  .results-tag{
+    font-size: 15px;
   }
 }
 .Long-bottom {

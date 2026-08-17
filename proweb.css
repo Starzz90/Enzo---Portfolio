@@ -392,8 +392,8 @@ h1 {
   margin-right: auto !important;
   animation: glow 2s infinite;
   flex-shrink: 2;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .results-tag{
   color: hsl(39, 61%, 66%);
@@ -419,9 +419,9 @@ h1 {
     margin-right: auto !important;
   }
 }
-@media(max-width: 460px){
+@media(max-width: 400px){
   .results-tag{
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 .Long-bottom {

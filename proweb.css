@@ -419,9 +419,13 @@ h1 {
     margin-right: auto !important;
   }
 }
-@media(max-width: 400px){
+@media(max-width: 450px){
   .results-tag{
     font-size: 13px;
+  }
+  .results{
+    display: flex;
+    flex-direction: column;
   }
 }
 .Long-bottom {

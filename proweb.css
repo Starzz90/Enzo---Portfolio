@@ -421,7 +421,7 @@ h1 {
 }
 @media(max-width: 450px){
   .results-tag{
-    font-size: 13px;
+    font-size: 15px;
   }
   .results{
     display: flex;

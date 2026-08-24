@@ -1,3 +1,28 @@
+const themeToggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("portfolio-theme");
+const initialTheme = savedTheme === "light" ? "light" : "dark";
+
+document.documentElement.dataset.theme = initialTheme;
+
+function updateThemeToggle() {
+  const isLight = document.documentElement.dataset.theme === "light";
+  themeToggle.setAttribute(
+    "aria-label",
+    isLight ? "Switch to dark theme" : "Switch to light theme",
+  );
+}
+
+if (themeToggle) {
+  updateThemeToggle();
+  themeToggle.addEventListener("click", function () {
+    const nextTheme =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("portfolio-theme", nextTheme);
+    updateThemeToggle();
+  });
+}
+
 var achieve = document.getElementById("ll-ach");
 if (achieve) {
   achieve.addEventListener("click", function (e) {
@@ -55,7 +80,7 @@ function Experience() {
 
 const SideLive = document.querySelector(".LIVE-BAR");
 const Side = document.querySelector(".sidebar");
-const top = document.querySelector(".top-nav");
+const topNav = document.querySelector(".top-nav");
 const differ = document.querySelector(".differ");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
@@ -63,7 +88,7 @@ const right = document.querySelector(".right");
 const observer = new MutationObserver(() => {
   const SideLiveStyle = window.getComputedStyle(SideLive).display !== "none";
   Side.style.display = SideLiveStyle ? "none" : "block";
-  top.style.display = SideLiveStyle ? "flex" : "none";
+  topNav.style.display = SideLiveStyle ? "flex" : "none";
   differ.style.display = SideLiveStyle ? "flex" : "none";
   left.style.display = SideLiveStyle ? "flex" : "block";
   right.style.display = SideLiveStyle ? "flex" : "block";

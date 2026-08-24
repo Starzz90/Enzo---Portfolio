@@ -213,11 +213,12 @@ body {
   border-color: var(--highlight);
   outline: none;
 }
-.theme-icon-moon,
-html[data-theme="light"] .theme-icon-sun {
+.theme-toggle .theme-icon {
   display: none;
 }
-html[data-theme="light"] .theme-icon-moon {
+html[data-theme="dark"] .theme-toggle .theme-icon-sun,
+html:not([data-theme]) .theme-toggle .theme-icon-sun,
+html[data-theme="light"] .theme-toggle .theme-icon-moon {
   display: block;
 }
 .space-between {
@@ -1215,7 +1216,7 @@ h2 {
 h2.code {
   letter-spacing: 5px;
   font-size: 20px;
-  background-color:var(--code-background);
+  background-color: var(--code-background);
   padding: 30px 60px;
   border-radius: 10px;
   box-shadow: var(--box-code-shadow);

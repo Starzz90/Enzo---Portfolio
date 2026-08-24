@@ -381,7 +381,7 @@ h1 {
   gap: 10px;
   box-sizing: border-box;
   padding: 10px 20px;
-  border-color:hsl(39, 61%, 66%);
+  border-color: transparent;
   border-width: 2px;
   border-style: solid;
   background-color:hsla(0, 0%, 8%, 0.796);

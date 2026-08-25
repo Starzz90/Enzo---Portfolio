@@ -48,6 +48,7 @@
   --count: hsl(43, 100%, 90%);
   --box-code-shadow: rgba(225, 225, 225, 0.3) 0px 4px 8px;
   --code-background: hsl(0, 0%, 8%);
+  --border-bot: hsla(0, 0%, 19%, 0.684);
 }
 
 html[data-theme="light"] {
@@ -83,6 +84,7 @@ html[data-theme="light"] {
   --count: hsl(0, 0%, 22%);
   --box-code-shadow: rgba(225, 225, 225, 0.3) 0px 4px 8px;
   --code-background: hsl(32, 16%, 84%);
+  --border-bot: hsl(0, 1%, 79%);
 }
 @import url("https://fonts.googleapis.com/css2?family=Boldonse&display=swap");
 *::before,
@@ -1644,7 +1646,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.127);
+  border-bottom: 2px solid var(--border-bot);
   margin-top: 10px;
   margin-bottom: 10px;
 }

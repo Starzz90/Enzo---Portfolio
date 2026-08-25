@@ -53,9 +53,9 @@
 html[data-theme="light"] {
   --background-color: #fbf1dd;
   --header: #202329;
-  --cards: rgba(148, 148, 148, 0.8);
+  --cards: rgba(247, 240, 224, 0.847);
   --name: rgba(63, 63, 63, 0.9);
-  --cards-above: #e4ded3;
+  --cards-above: #beb9ae;
   --cards-above-tools: #d9d1c5;
   --outline: rgba(31, 35, 41, 0.2);
   --text: #202329;
@@ -65,12 +65,12 @@ html[data-theme="light"] {
   --highlight: #d95700;
   --highlight-dim: rgba(217, 87, 0, 0.25);
   --shadow: #a9a095;
-  --achievement: #e2dbd0;
+  --achievement: #44423d;
   --project-card: rgba(255, 255, 255, 0.9);
   --sidebar: rgba(213, 213, 213, 0.78);
   --work-content: rgba(32, 35, 41, 0.58);
   --below: #e9e3d9;
-  --achieve: #f6f1df;
+  --achieve: #eeebdd;
   --gradient: #fffdf8;
   --used: hsl(23, 100%, 40%);
   --HOVERED: hsl(23, 100%, 48%);

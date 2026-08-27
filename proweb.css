@@ -49,6 +49,7 @@
   --box-code-shadow: rgba(225, 225, 225, 0.3) 0px 4px 8px;
   --code-background: hsl(0, 0%, 8%);
   --border-bot: hsla(0, 0%, 19%, 0.684);
+  --top-nav-icon: rgba(59, 59, 59, 0.82);
 }
 
 html[data-theme="light"] {
@@ -85,6 +86,7 @@ html[data-theme="light"] {
   --box-code-shadow: rgba(225, 225, 225, 0.3) 0px 4px 8px;
   --code-background: hsl(32, 16%, 84%);
   --border-bot: hsl(0, 1%, 79%);
+  --top-nav-icon: rgba(188, 178, 162, 0.82);
 }
 @import url("https://fonts.googleapis.com/css2?family=Boldonse&display=swap");
 *::before,
@@ -193,7 +195,7 @@ body {
   padding: 0px 4px;
 }
 .top-option:hover {
-  background-color:var(--achievement);
+  background-color:var(--top-nav-icon);
   box-shadow: var(--cards-above) 0px 0px 4px 2px;
   color: #ff3300;
   border-radius: 17px;

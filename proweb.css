@@ -52,6 +52,8 @@
   --top-nav-icon: rgba(59, 59, 59, 0.82);
   --word-glow-color: hsl(23, 100%, 46%);
   --shifter: hsl(0, 0%, 5%);
+  --results-background: hsla(0, 0%, 8%, 0.796);
+  --results-tag: hsl(46, 48%, 88%);
 }
 
 html[data-theme="light"] {
@@ -91,6 +93,8 @@ html[data-theme="light"] {
   --top-nav-icon: rgba(188, 178, 162, 0.82);
   --word-glow-color: hsl(23, 100%, 40%);
   --shifter: hsl(32, 76%, 92%);
+  --results-background: hsla(41, 46%, 86%, 0.796);
+  --results-tag: hsl(60, 1%, 14%);
 }
 @import url("https://fonts.googleapis.com/css2?family=Boldonse&display=swap");
 *::before,
@@ -461,7 +465,7 @@ h1 {
   border-color: transparent;
   border-width: 2px;
   border-style: solid;
-  background-color: hsla(0, 0%, 8%, 0.796);
+  background-color: var(--results-background);
   margin-bottom: 20px;
   margin-top: 20px;
   flex-wrap: wrap;
@@ -473,7 +477,7 @@ h1 {
   margin-right: 10px;
 }
 .results-tag {
-  color: hsl(39, 61%, 66%);
+  color: var(--results-tag);
   font-size: 30px;
   font-family: "Jetbrains Mono", monospace;
   font-weight: 900;

@@ -50,10 +50,12 @@
   --code-background: hsl(0, 0%, 8%);
   --border-bot: hsla(0, 0%, 19%, 0.684);
   --top-nav-icon: rgba(59, 59, 59, 0.82);
+  --word-glow-color: hsl(23, 100%, 46%);
+  --shifter: hsl(0, 0%, 5%);
 }
 
 html[data-theme="light"] {
-  --background-color: #fbf1dd;
+  --background-color: #f1e7d6;
   --header: #202329;
   --cards: rgba(247, 240, 224, 0.847);
   --name: rgba(63, 63, 63, 0.9);
@@ -87,6 +89,8 @@ html[data-theme="light"] {
   --code-background: hsl(32, 16%, 84%);
   --border-bot: hsl(0, 1%, 79%);
   --top-nav-icon: rgba(188, 178, 162, 0.82);
+  --word-glow-color: hsl(23, 100%, 40%);
+  --shifter: hsl(32, 76%, 92%);
 }
 @import url("https://fonts.googleapis.com/css2?family=Boldonse&display=swap");
 *::before,
@@ -884,7 +888,7 @@ h2.Engine {
   justify-content: center;
 }
 .Project-desc {
-  background: linear-gradient(to top, #040404 50%, #ffffff00);
+  background: linear-gradient(to top, var(--shifter) 50%, #ffffff00);
   height: auto;
   max-height: auto;
   width: 100%;
@@ -2491,4 +2495,19 @@ main {
   right: 10px;
   width: auto;
   height: auto;
+}
+@keyframes word-glow {
+  0% {
+    text-shadow: 0 0 5px var(--word-glow-color), 0 0 10px var(--word-glow-color), 0 0 20px var(--word-glow-color), 0 0 40px var(--word-glow-color);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--word-glow-color), 0 0 20px var(--word-glow-color), 0 0 40px var(--word-glow-color), 0 0 80px var(--word-glow-color);
+  }
+  100% {
+    text-shadow: 0 0 5px var(--word-glow-color), 0 0 10px var(--word-glow-color), 0 0 20px var(--word-glow-color), 0 0 40px var(--word-glow-color);
+  }
+}
+.word-glow{
+  animation: word-glow 5s infinite alternate;
+
 }

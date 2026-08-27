@@ -79,7 +79,7 @@ html[data-theme="light"] {
   --cards-above-dark: rgba(224, 217, 207, 0.9);
   --list-hover: rgba(217, 209, 197, 0.9);
   --page-pattern: rgb(23, 22, 22);
-  --page-pattern-empty: rgba(28, 28, 28, 0.911);
+  --page-pattern-empty: rgba(28, 28, 28, 0);
   --page-gradient: linear-gradient(120deg, #f4f0e8, #fffdf8 55%, #f7d7bd);
   --count: hsl(0, 0%, 22%);
   --box-code-shadow: rgba(225, 225, 225, 0.3) 0px 4px 8px;

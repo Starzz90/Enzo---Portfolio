@@ -78,7 +78,7 @@ html[data-theme="light"] {
   --accent: hsl(102, 100%, 29%);
   --cards-above-dark: rgba(224, 217, 207, 0.9);
   --list-hover: rgba(217, 209, 197, 0.9);
-  --page-pattern: rgb(23, 22, 22);
+  --page-pattern: rgba(108, 101, 101, 0.447);
   --page-pattern-empty: rgba(28, 28, 28, 0);
   --page-gradient: linear-gradient(120deg, #f4f0e8, #fffdf8 55%, #f7d7bd);
   --count: hsl(0, 0%, 22%);

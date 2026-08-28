@@ -226,6 +226,7 @@ body {
   color: var(--highlight);
   border-color: var(--highlight);
   outline: none;
+  animation: box-shadow-glow 2s infinite;
 }
 .theme-toggle .theme-icon {
   display: none;
@@ -2510,6 +2511,17 @@ main {
   100% {
     text-shadow: 0 0 5px var(--word-glow-color), 0 0 10px var(--word-glow-color), 0 0 20px var(--word-glow-color), 0 0 40px var(--word-glow-color);
   }
+}
+@keyframes box-shadow-glow {
+  0% {
+    box-shadow: 0 0 2px var(--word-glow-color), 0 0 4px var(--word-glow-color), 0 0 6px var(--word-glow-color), 0 0 10px var(--word-glow-color);
+  }
+  50% {
+    box-shadow: 0 0 4px var(--word-glow-color), 0 0 8px var(--word-glow-color), 0 0 12px var(--word-glow-color), 0 0 20px var(--word-glow-color);
+  }
+  100% {
+    box-shadow: 0 0 2px var(--word-glow-color), 0 0 4px var(--word-glow-color), 0 0 6px var(--word-glow-color), 0 0 10px var(--word-glow-color);
+}
 }
 .word-glow{
   animation: word-glow 5s infinite alternate;

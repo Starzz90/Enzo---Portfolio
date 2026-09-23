@@ -2442,6 +2442,14 @@ main {
   opacity: 0.5;
   margin: 10px 0px;
 }
+.test-scores{
+  display: none;
+}
+@media(max-width: 1400px) {
+  .test-scores{
+    display: block;
+  }
+}
 .lined {
   display: flex;
   align-items: center;

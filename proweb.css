@@ -596,7 +596,7 @@ h1 {
 }
 @media (max-width: 768px) {
   .Project-card {
-    max-height: 450px;
+    max-height: 350px;
     margin-right: 0;
   }
   .right {
@@ -606,7 +606,7 @@ h1 {
     font-size: 13px;
   }
   .Project-card-n {
-    max-height: 450px;
+    max-height: 350px;
     margin-right: 0;
   }
 }
@@ -2052,7 +2052,7 @@ li {
     padding: 0 12px;
   }
   .project-img {
-    max-height: 240px;
+    max-height: 100px;
   }
   .double-column-auto {
     grid-auto-flow: row;

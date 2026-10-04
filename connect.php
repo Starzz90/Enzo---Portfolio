@@ -2,7 +2,7 @@
     $host = "localhost";
     $user = "root";
     $password = "ServBay.dev";
-    $database = "register";
+    $database = "feedback_center";
 
     $conn = mysqli_connect($host, $user, $password, $database);
 

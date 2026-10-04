@@ -1,7 +1,7 @@
 <?php
     $host = "localhost";
     $user = "root";
-    $password = "";
+    $password = "ServBay.dev";
     $database = "register";
 
     $conn = mysqli_connect($host, $user, $password, $database);

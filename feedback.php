@@ -1,11 +1,12 @@
 <?php
     include "connect.php";
     if(isset($_POST['submit'])){
+        $Id = $_POST['id'];
         $user = $_POST['username'];
         $feed = $_POST['feedback'];
         $rate = $_POST['rating'];
         
-        $query = "INSERT INTO `feedbacks`(`Username`, `Feedback`, `Rating`) VALUES ('$user','$feed','$rate')";
+        $query = "INSERT INTO `feedback_center`(`Id`, `username`, `feedback`, `rating`) VALUES ('$Id','$user','$feed','$rate')";
         $result= mysqli_query($connect, $query);
     }
 ?>

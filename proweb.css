@@ -27,7 +27,7 @@
   --gradient: hsl(0, 0%, 3%);
   --used: hsl(23, 100%, 46%);
   --HOVERED: hsl(23, 100%, 61%);
-  --accent: hsl(123, 100%, 50%);
+  --accent: hsl(123, 97%, 39%);
   --cards-above-dark: hsla(0, 0%, 0%, 0.751);
   --list-hover: hsla(0, 0%, 6%, 0.751);
   --stanford: #8c1515;
@@ -137,7 +137,7 @@ body {
     cover;
   background-repeat: repeat, no-repeat;
   min-height: 100vh;
-  animation: backgroundAnimation 40s linear infinite;
+  animation: backgroundAnimation 200s linear infinite;
   background-color: var(--background-color);
   color: var(--text);
   font-family: "Jetbrains Mono", monospace;

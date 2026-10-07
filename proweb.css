@@ -149,7 +149,7 @@ body {
   overflow-y: auto;
   display: block;
 }
-@media(max-width > 1000px){
+@media(max-width > 768px){
   body{
     animation: backgroundAnimation 200s linear infinite;
   }

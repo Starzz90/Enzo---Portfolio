@@ -137,7 +137,6 @@ body {
     cover;
   background-repeat: repeat, no-repeat;
   min-height: 100vh;
-  animation: backgroundAnimation 200s linear infinite;
   background-color: var(--background-color);
   color: var(--text);
   font-family: "Jetbrains Mono", monospace;
@@ -148,6 +147,11 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   display: block;
+}
+@media(max-wdith > 768px){
+  body{
+    animation: backgroundAnimation 200s linear infinite;
+  }
 }
 @keyframes backgroundAnimation {
   0% {

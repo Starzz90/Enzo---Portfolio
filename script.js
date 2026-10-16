@@ -149,3 +149,172 @@ if (
 ) {
   window.addEventListener("load", updateCertificateLinks);
 }
+
+function initializeAchievementCarousel() {
+  if (!document.getElementById("bugle")) return;
+
+  const groups = Array.from(
+    document.querySelectorAll(".triple-column, .double-column"),
+  );
+  const cards = Array.from(
+    document.querySelectorAll(".achieve-card, .work-card"),
+  ).filter(function (card) {
+    return !card.closest("#hidden");
+  });
+
+  if (cards.length < 2) return;
+
+  const firstGroup = groups.find(function (group) {
+    return group.contains(cards[0]);
+  });
+  const carouselParent = firstGroup
+    ? firstGroup.parentElement
+    : cards[0].parentElement;
+  const insertBefore = firstGroup || cards[0];
+
+  const carousel = document.createElement("section");
+  carousel.className = "achievement-carousel";
+  carousel.setAttribute("role", "region");
+  carousel.setAttribute("aria-roledescription", "carousel");
+  carousel.setAttribute("aria-label", "Achievements");
+
+  const viewport = document.createElement("div");
+  viewport.className = "achievement-carousel-viewport";
+  viewport.tabIndex = 0;
+
+  const track = document.createElement("div");
+  track.className = "achievement-carousel-track";
+
+  function createSlide(card, index, isClone) {
+    const slideCard = isClone ? card.cloneNode(true) : card;
+    const slide = document.createElement("div");
+    slide.className = "achievement-carousel-slide";
+    slide.setAttribute("role", "group");
+    slide.setAttribute("aria-roledescription", "slide");
+    slide.setAttribute("aria-label", (index + 1) + " of " + cards.length);
+    if (isClone) {
+      slideCard.querySelectorAll("[id]").forEach(function (element) {
+        element.removeAttribute("id");
+      });
+    }
+    slide.appendChild(slideCard);
+    return slide;
+  }
+
+  track.appendChild(createSlide(cards[cards.length - 1], cards.length - 1, true));
+  cards.forEach(function (card, index) {
+    track.appendChild(createSlide(card, index, false));
+  });
+  track.appendChild(createSlide(cards[0], 0, true));
+
+  viewport.appendChild(track);
+
+  const controls = document.createElement("div");
+  controls.className = "achievement-carousel-controls";
+
+  const previousButton = document.createElement("button");
+  previousButton.className = "achievement-carousel-button";
+  previousButton.type = "button";
+  previousButton.setAttribute("aria-label", "Previous achievement");
+  previousButton.textContent = "‹";
+
+  const position = document.createElement("span");
+  position.className = "achievement-carousel-position";
+  position.setAttribute("aria-live", "polite");
+
+  const nextButton = document.createElement("button");
+  nextButton.className = "achievement-carousel-button";
+  nextButton.type = "button";
+  nextButton.setAttribute("aria-label", "Next achievement");
+  nextButton.textContent = "›";
+
+  controls.append(previousButton, position, nextButton);
+  carousel.append(viewport, controls);
+
+  carouselParent.insertBefore(carousel, insertBefore);
+  groups.forEach(function (group) {
+    group.remove();
+  });
+
+  let currentIndex = 1;
+  function updateSlideState() {
+    const logicalIndex = (currentIndex - 1 + cards.length) % cards.length;
+    position.textContent = (logicalIndex + 1) + " / " + cards.length;
+
+    track.querySelectorAll(".achievement-carousel-slide").forEach(
+      function (slide, index) {
+        const isActive = index === currentIndex;
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+        slide.inert = !isActive;
+      },
+    );
+  }
+
+  function positionTrack() {
+    const activeSlide = track.children[currentIndex];
+    const trackLeft = track.getBoundingClientRect().left;
+    const activeSlideRect = activeSlide.getBoundingClientRect();
+    const offset =
+      viewport.clientWidth / 2 -
+      (activeSlideRect.left - trackLeft) -
+      activeSlide.offsetWidth / 2;
+    track.style.transform = "translateX(" + offset + "px)";
+  }
+
+  function showSlide(index) {
+    currentIndex = index;
+    updateSlideState();
+    positionTrack();
+  }
+
+  track.addEventListener("transitionend", function (event) {
+    if (event.target !== track || event.propertyName !== "transform") return;
+
+    if (currentIndex === 0 || currentIndex === cards.length + 1) {
+      currentIndex = currentIndex === 0 ? cards.length : 1;
+      track.style.transition = "none";
+      updateSlideState();
+      positionTrack();
+      track.offsetHeight;
+      track.style.transition = "";
+    }
+  });
+
+  previousButton.addEventListener("click", function () {
+    const baseIndex =
+      currentIndex === 0
+        ? cards.length
+        : currentIndex === cards.length + 1
+          ? 1
+          : currentIndex;
+    showSlide(baseIndex - 1);
+  });
+
+  nextButton.addEventListener("click", function () {
+    const baseIndex =
+      currentIndex === cards.length + 1
+        ? 1
+        : currentIndex === 0
+          ? cards.length
+          : currentIndex;
+    showSlide(baseIndex + 1);
+  });
+
+  viewport.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      previousButton.click();
+    } else if (event.key === "ArrowRight") {
+      nextButton.click();
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+  });
+
+  window.addEventListener("resize", positionTrack);
+  updateSlideState();
+  positionTrack();
+}
+
+initializeAchievementCarousel();

@@ -272,7 +272,6 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   flex-direction: column;
   flex-wrap: wrap;
   right: 0;
-  top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -527,6 +526,7 @@ h1 {
   left: 0;
   height: auto;
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 .card {
   background-color: var(--cards);

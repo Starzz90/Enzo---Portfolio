@@ -2259,14 +2259,14 @@ h6#side.side {
   margin-top: 12px;
 }
 .achievement-carousel-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--cards-above);
+  background-color: transparent;
+  border: 2px solid transparent;
   border-radius: 50%;
-  background-color: var(--cards);
   color: var(--text);
   font: inherit;
   font-size: 28px;
@@ -2274,7 +2274,7 @@ h6#side.side {
   cursor: pointer;
 }
 .achievement-carousel-button:hover:not(:disabled) {
-  border-color: var(--highlight);
+  border-color: transparent;
   color: var(--highlight);
 }
 .achievement-carousel-button:focus-visible {

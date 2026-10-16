@@ -2383,7 +2383,7 @@ h6#side.side {
     margin-bottom: 60px;
   }
 }
-@media (max-wdith: 768px) {
+@media (max-width: 768px) {
   .certif {
     margin-bottom: 30px;
   }

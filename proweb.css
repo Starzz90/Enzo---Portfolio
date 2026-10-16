@@ -272,6 +272,7 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   flex-direction: column;
   flex-wrap: wrap;
   right: 0;
+  top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -2294,6 +2295,15 @@ h6#side.side {
   .achievement-carousel-slide .achieve-card,
   .achievement-carousel-slide .work-card {
     height: 420px;
+  }
+}
+@media (max-width: 767.98px) {
+  .achievement-carousel-slide {
+    flex-basis: 100%;
+  }
+  .achievement-carousel-viewport::before,
+  .achievement-carousel-viewport::after {
+    display: none;
   }
 }
 

@@ -741,7 +741,8 @@ h2.Engine {
   font-family: "Rajdhani", sans-serif;
   font-size: 30px;
   font-weight: 900;
-  margin: 40px 0px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 .specs-card {
   background-color: var(--cards-above-dark);

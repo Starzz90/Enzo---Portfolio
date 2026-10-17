@@ -1630,7 +1630,6 @@ li.achieve {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-evenly;
   gap: 5px;
   padding: 0px 5px;
   opacity: 1;
@@ -2694,4 +2693,15 @@ main {
 .word-glow{
   animation: word-glow 5s infinite alternate;
 
+}
+.tiny-icon{
+  width: 25px;
+  height: 25px;
+  background-image: radial-gradient(circle, var(--accent) 0%, var(--accent2-color) 100%);
+  border-radius: 50%;
+}
+.tiny-icon-alignment{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

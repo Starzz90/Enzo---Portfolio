@@ -828,7 +828,6 @@ h2.Engine {
   font-size: 25px;
   font-family: "Jetbrains Mono", monospace;
   color: var(--cert);
-  margin-right: 20px;
 }
 .tag {
   color: var(--achievement);

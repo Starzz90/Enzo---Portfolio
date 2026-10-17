@@ -2236,6 +2236,13 @@ h6#side.side {
   margin: 0 auto;
   flex: 0 0 auto;
 }
+.achievement-archive-card {
+  padding: 0;
+}
+.achievement-archive-card .achieve-others {
+  box-sizing: border-box;
+  margin-top: 0;
+}
 .achievement-carousel-controls {
   display: flex;
   align-items: center;

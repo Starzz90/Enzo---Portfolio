@@ -2188,29 +2188,14 @@ h6#side.side {
 }
 .achievement-carousel-viewport {
   position: relative;
-  overflow: hidden;
   border-radius: 10px;
-}
-.achievement-carousel-viewport::before,
-.achievement-carousel-viewport::after {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  width: 9%;
-  content: "";
-  pointer-events: none;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
 }
 .achievement-carousel-viewport::before {
   left: 0;
-  background: linear-gradient(to right, var(--background-color), transparent);
   mask-image: linear-gradient(to right, #000, transparent);
 }
 .achievement-carousel-viewport::after {
   right: 0;
-  background: linear-gradient(to left, var(--background-color), transparent);
   mask-image: linear-gradient(to left, #000, transparent);
 }
 .achievement-carousel-viewport:focus-visible {

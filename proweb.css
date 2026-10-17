@@ -265,7 +265,7 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
 }
 .contain {
   width: 100%;
-  max-width: 1200px; /* keep content centered and constrained */
+  max-width: 1150px; /* keep content centered and constrained */
   height: auto;
   padding: 10px clamp(16px, 3vw, 40px);
   margin: 0 auto; /* center with equal left/right margins */

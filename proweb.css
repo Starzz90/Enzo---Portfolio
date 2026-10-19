@@ -31,7 +31,7 @@
   --cards-above-dark: hsla(0, 0%, 0%, 0.751);
   --list-hover: hsla(0, 0%, 6%, 0.751);
   --stanford: #8c1515;
-  --page-pattern: rgba(209, 209, 209, 0.188);
+  --page-pattern: rgba(209, 209, 209, 0.207);
   --page-pattern-empty: rgba(23, 23, 23, 0);
   --page-gradient: linear-gradient(
     to right top,
@@ -83,7 +83,7 @@ html[data-theme="light"] {
   --accent: hsl(102, 100%, 29%);
   --cards-above-dark: rgba(224, 217, 207, 0.9);
   --list-hover: rgba(217, 209, 197, 0.9);
-  --page-pattern: rgba(108, 101, 101, 0.406);
+  --page-pattern: rgba(108, 101, 101, 0.447);
   --page-pattern-empty: rgba(28, 28, 28, 0);
   --page-gradient: linear-gradient(120deg, #f4f0e8, #fffdf8 55%, #f7d7bd);
   --count: hsl(0, 0%, 22%);
@@ -1377,6 +1377,7 @@ h3 {
   opacity: 0.7;
 }
 .image-container {
+  position: relative;
   width: 100px;
   height: 100%;
   max-height: 100px;
@@ -1387,10 +1388,67 @@ h3 {
   justify-content: center;
   border-radius: 20px;
   padding: 15px;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
   box-shadow: rgba(255, 255, 255, 0.167) 0px 6px 8px;
   margin-left: 5px;
   opacity: 0.9;
+}
+.stack:has(.image-container:hover, .image-container:focus) .image-container {
+  transform: scale(0.93);
+  opacity: 0.3;
+}
+.stack:has(.image-container:hover, .image-container:focus)
+  .image-container:hover,
+.stack:has(.image-container:hover, .image-container:focus)
+  .image-container:focus {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.05);
+  opacity: 1;
+}
+.stack .image-container:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.stack-item-tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  z-index: 2;
+  width: max-content;
+  max-width: 180px;
+  padding: 5px 9px;
+  border: 1px solid var(--outline);
+  border-radius: 6px;
+  background: var(--results-background);
+  color: var(--text);
+  font-family: "Jetbrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 4px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+}
+.stack .image-container:hover .stack-item-tooltip,
+.stack .image-container:focus .stack-item-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .image-container,
+  .stack-item-tooltip {
+    transition: none;
+  }
 }
 #html.image-container {
   background-color: rgb(255, 89, 0);
@@ -2713,4 +2771,268 @@ main {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.achievement-carousel-viewport {
+  touch-action: pan-y;
+}
+.certif,
+.certif-exp,
+.project-img {
+  cursor: zoom-in;
+}
+.certif:focus-visible,
+.certif-exp:focus-visible,
+.project-img:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
+}
+.portfolio-scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100001;
+  height: 3px;
+  pointer-events: none;
+}
+.portfolio-scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--highlight);
+  box-shadow: 0 0 8px var(--highlight);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.portfolio-tools {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 100000;
+  display: flex;
+  gap: 10px;
+}
+.portfolio-tool-button,
+.portfolio-image-nav,
+.portfolio-dialog-close {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--outline);
+  border-radius: 50%;
+  background: var(--results-background);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+.portfolio-tool-button:hover,
+.portfolio-tool-button:focus-visible,
+.portfolio-image-nav:hover,
+.portfolio-image-nav:focus-visible,
+.portfolio-dialog-close:hover,
+.portfolio-dialog-close:focus-visible {
+  border-color: var(--highlight);
+  color: var(--highlight);
+  outline: none;
+}
+.portfolio-tool-button svg {
+  width: 20px;
+  height: 20px;
+}
+.portfolio-top-button {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+.portfolio-top-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.portfolio-search-dialog,
+.portfolio-image-dialog {
+  max-width: min(94vw, 760px);
+  max-height: 90vh;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+  background: var(--results-background);
+  color: var(--text);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+.portfolio-search-dialog::backdrop,
+.portfolio-image-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(5px);
+}
+.portfolio-search-panel {
+  padding: 24px;
+  font-family: "Jetbrains Mono", monospace;
+}
+.portfolio-search-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 17px;
+}
+.portfolio-dialog-close {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  font: inherit;
+  font-size: 24px;
+}
+.portfolio-search-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  background: var(--code-background);
+  color: var(--text);
+  font: inherit;
+}
+.portfolio-search-input:focus-visible {
+  border-color: var(--highlight);
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+.portfolio-search-hint,
+.portfolio-search-status {
+  margin: 10px 0;
+  color: var(--on-surface);
+  font-size: 12px;
+}
+.portfolio-search-results {
+  display: grid;
+  max-height: 48vh;
+  gap: 6px;
+  overflow-y: auto;
+}
+.portfolio-search-result {
+  display: grid;
+  gap: 4px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.portfolio-search-result:hover,
+.portfolio-search-result:focus-visible {
+  border-color: var(--outline);
+  background: var(--cards-above);
+  outline: none;
+}
+.portfolio-search-result strong {
+  color: var(--highlight);
+}
+.portfolio-search-result span {
+  overflow: hidden;
+  color: var(--on-surface);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.portfolio-search-status {
+  min-height: 1em;
+  margin-bottom: 0;
+}
+.portfolio-image-dialog {
+  width: min(94vw, 1280px);
+  max-width: 94vw;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.portfolio-image-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 12px;
+  min-height: 120px;
+}
+.portfolio-image-panel figure {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+}
+.portfolio-preview-image {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 5px;
+  background: var(--code-background);
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.45);
+}
+.portfolio-image-caption {
+  max-width: 100%;
+  color: #fff;
+  font-family: "Jetbrains Mono", monospace;
+  font-size: 13px;
+  text-align: center;
+  text-shadow: 0 1px 5px #000;
+}
+.portfolio-image-nav {
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+}
+.portfolio-image-close {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  z-index: 1;
+  background: var(--results-background);
+}
+@media (max-width: 600px) {
+  .portfolio-tools {
+    right: 14px;
+    bottom: 14px;
+  }
+  .portfolio-tool-button {
+    width: 42px;
+    height: 42px;
+  }
+  .portfolio-search-panel {
+    padding: 18px;
+  }
+  .portfolio-image-panel {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 6px;
+  }
+  .portfolio-image-nav {
+    width: 36px;
+    height: 36px;
+  }
+  .portfolio-image-close {
+    top: -18px;
+    right: -4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-tool-button,
+  .portfolio-image-nav,
+  .portfolio-dialog-close,
+  .achievement-carousel-track,
+  .achievement-carousel-slide {
+    transition: none;
+  }
 }

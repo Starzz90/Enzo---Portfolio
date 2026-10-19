@@ -418,9 +418,396 @@ function initializeAchievementCarousel() {
     event.preventDefault();
   });
 
+  let touchStart = null;
+  viewport.addEventListener("pointerdown", function (event) {
+    if (!event.isPrimary || event.pointerType !== "touch") return;
+    touchStart = { x: event.clientX, y: event.clientY };
+  });
+  viewport.addEventListener("pointerup", function (event) {
+    if (!touchStart || event.pointerType !== "touch") return;
+    const deltaX = event.clientX - touchStart.x;
+    const deltaY = event.clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) {
+      return;
+    }
+    (deltaX < 0 ? nextButton : previousButton).click();
+  });
+  viewport.addEventListener("pointercancel", function () {
+    touchStart = null;
+  });
+
   window.addEventListener("resize", positionTrack);
   updateSlideState();
   positionTrack();
 }
 
 initializeAchievementCarousel();
+
+function initializePortfolioTools() {
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const progress = document.createElement("div");
+  progress.className = "portfolio-scroll-progress";
+  progress.setAttribute("role", "progressbar");
+  progress.setAttribute("aria-label", "Page reading progress");
+  progress.setAttribute("aria-valuemin", "0");
+  progress.setAttribute("aria-valuemax", "100");
+  const progressBar = document.createElement("span");
+  progress.appendChild(progressBar);
+  document.body.appendChild(progress);
+
+  const tools = document.createElement("div");
+  tools.className = "portfolio-tools";
+
+  const searchButton = document.createElement("button");
+  searchButton.className = "portfolio-tool-button portfolio-search-button";
+  searchButton.type = "button";
+  searchButton.setAttribute("aria-label", "Search this portfolio");
+  searchButton.title = "Search this portfolio (Ctrl+K)";
+  searchButton.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>';
+
+  const topButton = document.createElement("button");
+  topButton.className = "portfolio-tool-button portfolio-top-button";
+  topButton.type = "button";
+  topButton.setAttribute("aria-label", "Back to top");
+  topButton.title = "Back to top";
+  topButton.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>';
+
+  tools.append(searchButton, topButton);
+  document.body.appendChild(tools);
+
+  function updateScrollProgress() {
+    const scrollableHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const percentage =
+      scrollableHeight > 0
+        ? Math.min(100, Math.round((window.scrollY / scrollableHeight) * 100))
+        : 0;
+    progressBar.style.transform = "scaleX(" + percentage / 100 + ")";
+    progress.setAttribute("aria-valuenow", String(percentage));
+    topButton.classList.toggle("is-visible", window.scrollY > 320);
+  }
+
+  let scrollUpdatePending = false;
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (scrollUpdatePending) return;
+      scrollUpdatePending = true;
+      window.requestAnimationFrame(function () {
+        updateScrollProgress();
+        scrollUpdatePending = false;
+      });
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
+
+  topButton.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  });
+
+  const searchDialog = document.createElement("dialog");
+  searchDialog.className = "portfolio-search-dialog";
+  searchDialog.setAttribute("aria-label", "Search this portfolio");
+  searchDialog.innerHTML =
+    '<div class="portfolio-search-panel"><div class="portfolio-search-heading"><label for="portfolio-search-input">Search this portfolio</label><button class="portfolio-dialog-close" type="button" aria-label="Close search">×</button></div><input id="portfolio-search-input" class="portfolio-search-input" type="search" placeholder="Try “award”, “project”, or a skill…" autocomplete="off"><p class="portfolio-search-hint">Press Ctrl+K to open · Esc to close</p><div class="portfolio-search-results" role="listbox" aria-label="Search results"></div><p class="portfolio-search-status" role="status" aria-live="polite"></p></div>';
+  document.body.appendChild(searchDialog);
+
+  const searchInput = searchDialog.querySelector(".portfolio-search-input");
+  const searchResults = searchDialog.querySelector(".portfolio-search-results");
+  const searchStatus = searchDialog.querySelector(".portfolio-search-status");
+
+  function collectSearchItems() {
+    const items = [];
+    const visited = new Set();
+    const addItem = function (item) {
+      if (!item.label || visited.has(item.key)) return;
+      visited.add(item.key);
+      items.push(item);
+    };
+
+    document.querySelectorAll(".sidebar a[href], .top-nav a[href]").forEach(
+      function (link) {
+        const href = link.getAttribute("href");
+        const label =
+          link.textContent.trim() ||
+          link.getAttribute("aria-label") ||
+          link.getAttribute("title") ||
+          href;
+        addItem({
+          key: "link:" + href,
+          label: label,
+          detail: "Open page",
+          href: href,
+        });
+      },
+    );
+
+    document.querySelectorAll("h1, h2, h3").forEach(function (heading) {
+      if (heading.closest(".achieve-card, .work-card, .Project-card, .Project-card-n, .Uni-card")) {
+        return;
+      }
+      const label = heading.textContent.trim();
+      addItem({
+        key: "heading:" + label,
+        label: label,
+        detail: "Section on this page",
+        element: heading,
+      });
+    });
+
+    document
+      .querySelectorAll(
+        ".achieve-card, .work-card, .Project-card, .Project-card-n, .Uni-card, .specs-card, .add-card",
+      )
+      .forEach(function (card, index) {
+        if (card.closest('.achievement-carousel-slide[aria-hidden="true"]')) {
+          return;
+        }
+        const heading = card.querySelector(
+          "h1, h2, h3, h4, .project-name, .job, .identity",
+        );
+        const label =
+          (heading && heading.textContent.trim()) ||
+          card.textContent.trim().replace(/\s+/g, " ").slice(0, 72);
+        const detail = card.textContent.trim().replace(/\s+/g, " ").slice(0, 180);
+        addItem({
+          key: "card:" + index + ":" + label,
+          label: label,
+          detail: detail,
+          element: card,
+        });
+      });
+
+    return items;
+  }
+
+  function renderSearchResults() {
+    const query = searchInput.value.trim().toLocaleLowerCase();
+    searchResults.replaceChildren();
+    const allMatches = collectSearchItems()
+      .filter(function (item) {
+        return (
+          !query ||
+          (item.label + " " + item.detail).toLocaleLowerCase().includes(query)
+        );
+      });
+    const matches = allMatches.slice(0, 12);
+
+    matches.forEach(function (item) {
+      const result = document.createElement("button");
+      result.className = "portfolio-search-result";
+      result.type = "button";
+      result.setAttribute("role", "option");
+      const title = document.createElement("strong");
+      title.textContent = item.label;
+      const detail = document.createElement("span");
+      detail.textContent = item.detail;
+      result.append(title, detail);
+      result.addEventListener("click", function () {
+        if (item.href) {
+          window.location.href = item.href;
+          return;
+        }
+        searchDialog.close();
+        item.element.scrollIntoView({
+          behavior: reducedMotion ? "auto" : "smooth",
+          block: "center",
+        });
+        item.element.tabIndex = -1;
+        item.element.focus({ preventScroll: true });
+      });
+      searchResults.appendChild(result);
+    });
+
+    searchStatus.textContent = matches.length
+      ? allMatches.length > matches.length
+        ? "Showing " + matches.length + " of " + allMatches.length + " results"
+        : allMatches.length + " results"
+      : "No matching sections or items.";
+  }
+
+  function openSearch() {
+    if (!searchDialog.open) {
+      searchDialog.showModal();
+      searchInput.value = "";
+      renderSearchResults();
+      searchInput.focus();
+    }
+  }
+
+  searchButton.addEventListener("click", openSearch);
+  searchDialog
+    .querySelector(".portfolio-dialog-close")
+    .addEventListener("click", function () {
+      searchDialog.close();
+    });
+  searchInput.addEventListener("input", renderSearchResults);
+  searchDialog.addEventListener("click", function (event) {
+    if (event.target === searchDialog) searchDialog.close();
+  });
+  document.addEventListener("keydown", function (event) {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      openSearch();
+    }
+  });
+
+  const imageDialog = document.createElement("dialog");
+  imageDialog.className = "portfolio-image-dialog";
+  imageDialog.setAttribute("aria-label", "Image preview");
+  imageDialog.innerHTML =
+    '<div class="portfolio-image-panel"><button class="portfolio-dialog-close portfolio-image-close" type="button" aria-label="Close image preview">×</button><button class="portfolio-image-nav portfolio-image-previous" type="button" aria-label="Previous image">‹</button><figure><img class="portfolio-preview-image" alt=""><figcaption class="portfolio-image-caption"></figcaption></figure><button class="portfolio-image-nav portfolio-image-next" type="button" aria-label="Next image">›</button></div>';
+  document.body.appendChild(imageDialog);
+
+  const previewImage = imageDialog.querySelector(".portfolio-preview-image");
+  const imageCaption = imageDialog.querySelector(".portfolio-image-caption");
+  const previousImageButton = imageDialog.querySelector(
+    ".portfolio-image-previous",
+  );
+  const nextImageButton = imageDialog.querySelector(".portfolio-image-next");
+  let galleryImages = [];
+  let currentImageIndex = 0;
+
+  function showPreviewImage(index) {
+    currentImageIndex =
+      (index + galleryImages.length) % galleryImages.length;
+    const image = galleryImages[currentImageIndex];
+    previewImage.src = image.currentSrc || image.src;
+    previewImage.alt = image.alt || imageCaption.textContent;
+    imageCaption.textContent = image.dataset.previewCaption;
+    const hasMultipleImages = galleryImages.length > 1;
+    previousImageButton.hidden = !hasMultipleImages;
+    nextImageButton.hidden = !hasMultipleImages;
+    imageDialog.setAttribute(
+      "aria-label",
+      "Image preview, " +
+        (currentImageIndex + 1) +
+        " of " +
+        galleryImages.length,
+    );
+  }
+
+  function openImagePreview(image) {
+    galleryImages = Array.from(
+      document.querySelectorAll(
+        ".certif, .certif-exp, .project-img",
+      ),
+    ).filter(function (candidate) {
+      return candidate.naturalWidth > 0;
+    });
+    currentImageIndex = galleryImages.indexOf(image);
+    if (currentImageIndex < 0) return;
+    showPreviewImage(currentImageIndex);
+    imageDialog.showModal();
+  }
+
+  document.addEventListener("click", function (event) {
+    const image =
+      event.target instanceof Element
+        ? event.target.closest(".certif, .certif-exp, .project-img")
+        : null;
+    if (!image || image.naturalWidth === 0) return;
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openImagePreview(image);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    const image =
+      event.target instanceof Element
+        ? event.target.closest(".certif, .certif-exp, .project-img")
+        : null;
+    if (image && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      openImagePreview(image);
+      return;
+    }
+    if (!imageDialog.open) return;
+    if (event.key === "ArrowLeft") showPreviewImage(currentImageIndex - 1);
+    if (event.key === "ArrowRight") showPreviewImage(currentImageIndex + 1);
+  });
+
+  previousImageButton.addEventListener("click", function () {
+    showPreviewImage(currentImageIndex - 1);
+  });
+  nextImageButton.addEventListener("click", function () {
+    showPreviewImage(currentImageIndex + 1);
+  });
+  imageDialog
+    .querySelector(".portfolio-image-close")
+    .addEventListener("click", function () {
+      imageDialog.close();
+    });
+  imageDialog.addEventListener("click", function (event) {
+    if (event.target === imageDialog) imageDialog.close();
+  });
+
+  function makePreviewImagesAccessible() {
+    document
+      .querySelectorAll(".certif, .certif-exp, .project-img")
+      .forEach(function (image) {
+        if (image.naturalWidth === 0 || image.dataset.previewReady) return;
+        const card = image.closest(
+          ".achieve-card, .work-card, .Project-card, .Project-card-n",
+        );
+        const heading =
+          card && card.querySelector("h2, h3, .project-name, .job");
+        const caption =
+          (heading && heading.textContent.trim()) ||
+          image.alt ||
+          image.src.split("/").pop();
+        image.dataset.previewCaption = caption;
+        image.dataset.previewReady = "true";
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+        image.setAttribute("aria-label", "Preview image: " + caption);
+      });
+  }
+
+  makePreviewImagesAccessible();
+  document.querySelectorAll(".certif, .certif-exp, .project-img").forEach(
+    function (image) {
+      image.addEventListener("load", makePreviewImagesAccessible, {
+        once: true,
+      });
+    },
+  );
+}
+
+initializePortfolioTools();
+
+document
+  .querySelectorAll(".stack .five-column-image .image-container")
+  .forEach(function (item) {
+    const names = {
+      html: "HTML5",
+      css: "CSS3",
+      js: "JavaScript",
+      py: "Python",
+      php: "PHP",
+      sql: "MySQL",
+      wind: "Tailwind CSS",
+      VS: "Visual Studio Code",
+      git: "GitHub",
+      Fig: "Figma",
+      Pycharm: "PyCharm",
+      Canva: "Canva",
+    };
+    const name = item.dataset.name || names[item.id] || item.id;
+    item.tabIndex = 0;
+    item.setAttribute("aria-label", name + " stack icon");
+
+    const tooltip = document.createElement("span");
+    tooltip.className = "stack-item-tooltip";
+    tooltip.setAttribute("aria-hidden", "true");
+    tooltip.textContent = name;
+    item.appendChild(tooltip);
+  });

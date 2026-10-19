@@ -656,3 +656,49 @@ document
     tooltip.textContent = name;
     item.appendChild(tooltip);
   });
+
+document
+  .querySelectorAll(".sidebar a[href], .top-nav a[href]")
+  .forEach(function (link) {
+    const linkUrl = new URL(link.href, window.location.href);
+    if (
+      linkUrl.origin === window.location.origin &&
+      linkUrl.pathname === window.location.pathname
+    ) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+
+const revealTargets = Array.from(
+  document.querySelectorAll(
+    ".main-head, .specs-card, .add-card, .Project-card, .Project-card-n, .Uni-card, .work-card",
+  ),
+).filter(function (element) {
+  return !element.closest(".achievement-carousel");
+});
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  revealTargets.forEach(function (element) {
+    element.classList.add("is-visible");
+  });
+} else if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 },
+  );
+
+  revealTargets.forEach(function (element) {
+    element.classList.add("scroll-reveal");
+    revealObserver.observe(element);
+  });
+} else {
+  revealTargets.forEach(function (element) {
+    element.classList.add("is-visible");
+  });
+}

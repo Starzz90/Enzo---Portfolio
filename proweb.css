@@ -210,12 +210,10 @@ body {
 }
 .top-option:hover,
 .top-option:focus-visible,
-.top-option:active
-.top-option::after {
-  background-color:var(--top-nav-icon);
-  box-shadow: var(--cards-above) 0px 0px 4px 2px;
-  color: #ff3300;
-  border-radius: 17px;
+.top-option:active {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--highlight);
 }
 .theme-toggle {
   width: 34px;
@@ -2654,83 +2652,32 @@ inputs:-webkit-autofill-active {
 @view-transition {
   navigation: auto;
 }
-::view-transition-group(contain) {
-  animation-timing-function: ease;
-  animation-duration: 0.5s;
+::view-transition-old(root) {
+  animation: page-transition-out 180ms ease-in both;
 }
-::view-transition-old(contain) {
-  animation-name: slideOutDown;
+::view-transition-new(root) {
+  animation: page-transition-in 360ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
 }
-@-webkit-keyframes slideOutDown {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
+@keyframes page-transition-out {
   to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    opacity: 0;
   }
 }
-@keyframes slideOutDown {
+@keyframes page-transition-in {
   from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    opacity: 0;
+    transform: translateY(10px);
   }
-
   to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.animate__slideOutDown {
-  -webkit-animation-name: slideOutDown;
-  animation-name: slideOutDown;
-  animation-duration: 0.5s;
-  -webkit-animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-}
-@-webkit-keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    visibility: visible;
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
   }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    visibility: visible;
-  }
-}
-to {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-.animate__slideInUp {
-  -webkit-animation-name: slideInUp;
-  animation-name: slideInUp;
-  animation-duration: 0.5s;
-  -webkit-animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  /* Sliding exits */
-}
-::view-transition-new(contain) {
-  animation-duration: 0.5s;
-  animation-name: slideInUp;
-}
-main {
-  view-transition-name: contain;
 }
 @keyframes slideout {
   to {
@@ -3042,6 +2989,107 @@ main {
   .portfolio-dialog-close,
   .achievement-carousel-track,
   .achievement-carousel-slide {
+    transition: none;
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 560ms ease,
+    transform 560ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.Project-card,
+.Project-card-n,
+.Uni-card,
+.work-card,
+.specs-card:not(.skill-detail-card),
+.add-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+.Project-card:hover,
+.Project-card:focus-within,
+.Project-card-n:hover,
+.Project-card-n:focus-within,
+.Uni-card:hover,
+.Uni-card:focus-within,
+.work-card:hover,
+.work-card:focus-within,
+.specs-card:not(.skill-detail-card):hover,
+.specs-card:not(.skill-detail-card):focus-within,
+.add-card:hover,
+.add-card:focus-within {
+  transform: translateY(-3px);
+}
+.top-option,
+.list,
+.theme-toggle,
+.redirect,
+.redirect-media,
+.achieve-others,
+.contact-icon,
+.achievement-carousel-button {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+.top-option:hover,
+.top-option:focus-visible,
+.theme-toggle:hover,
+.theme-toggle:focus-visible,
+.redirect:hover,
+.redirect-media:hover,
+.achieve-others:hover,
+.contact-icon:hover,
+.achievement-carousel-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.list[aria-current="page"] {
+  color: var(--highlight);
+  border-color: var(--highlight);
+  background-color: var(--top-nav-icon);
+}
+.top-nav a[aria-current="page"] {
+  color: var(--highlight);
+  border-color: transparent;
+  background-color: transparent;
+}
+.top-nav .top-option:hover,
+.top-nav .top-option:focus-visible,
+.top-nav .top-option:active {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--highlight);
+  outline: none;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .Project-card,
+  .Project-card-n,
+  .Uni-card,
+  .work-card,
+  .specs-card:not(.skill-detail-card),
+  .add-card,
+  .top-option,
+  .list,
+  .theme-toggle,
+  .redirect,
+  .redirect-media,
+  .achieve-others,
+  .contact-icon,
+  .achievement-carousel-button {
     transition: none;
   }
 }

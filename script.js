@@ -18,6 +18,7 @@ function initializeBackgroundDots() {
   let dots = [];
   let width = 0;
   let height = 0;
+  let shootingStars = [];
 
   function drawDots(timestamp = 0) {
     const color = getComputedStyle(document.body)
@@ -36,6 +37,55 @@ function initializeBackgroundDots() {
         Math.PI * 2,
       );
       context.fill();
+    });
+
+    shootingStars = shootingStars.filter(function (shootingStar) {
+      const progress = Math.min(
+        1,
+        Math.max(
+          0,
+          (timestamp - shootingStar.startedAt) / shootingStar.duration,
+        ),
+      );
+      if (progress === 1) {
+        return false;
+      }
+
+      const easedProgress = progress * progress;
+      const headX =
+        shootingStar.x + shootingStar.distanceX * easedProgress;
+      const headY =
+        shootingStar.y + shootingStar.distanceY * easedProgress;
+      const trailLength = 190;
+      const highlight = getComputedStyle(document.documentElement)
+        .getPropertyValue("--highlight")
+        .trim();
+      const trail = context.createLinearGradient(
+        headX - Math.cos(shootingStar.angle) * trailLength,
+        headY - Math.sin(shootingStar.angle) * trailLength,
+        headX,
+        headY,
+      );
+      trail.addColorStop(0, "transparent");
+      trail.addColorStop(0.75, highlight);
+      trail.addColorStop(1, "#ffffff");
+
+      context.save();
+      context.globalAlpha = Math.sin(progress * Math.PI);
+      context.strokeStyle = trail;
+      context.lineWidth = 2;
+      context.lineCap = "round";
+      context.shadowColor = highlight;
+      context.shadowBlur = 12;
+      context.beginPath();
+      context.moveTo(
+        headX - Math.cos(shootingStar.angle) * trailLength,
+        headY - Math.sin(shootingStar.angle) * trailLength,
+      );
+      context.lineTo(headX, headY);
+      context.stroke();
+      context.restore();
+      return true;
     });
   }
 
@@ -94,11 +144,61 @@ function initializeBackgroundDots() {
 
   randomizeDots();
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    function scheduleShootingStar() {
+      window.setTimeout(function () {
+        const angle = Math.PI / 6;
+        const distance = Math.min(
+          width / Math.cos(angle),
+          height / Math.sin(angle),
+        );
+        const distanceX = distance * Math.cos(angle);
+        const distanceY = distance * Math.sin(angle);
+        const starCount = 1 + Math.floor(Math.random() * 3);
+        const spawnPoints = [];
+
+        for (let index = 0; index < starCount; index++) {
+          let spawnPoint;
+          let attempts = 0;
+          do {
+            spawnPoint = {
+              x: Math.random() * Math.max(0, width - distanceX),
+              y: Math.random() * Math.max(0, height - distanceY),
+            };
+            attempts++;
+          } while (
+            attempts < 10 &&
+            spawnPoints.some(function (other) {
+              return Math.hypot(
+                spawnPoint.x - other.x,
+                spawnPoint.y - other.y,
+              ) < 80;
+            })
+          );
+          spawnPoints.push(spawnPoint);
+        }
+
+        const startedAt = performance.now();
+        shootingStars = spawnPoints.map(function (spawnPoint) {
+          return {
+            x: spawnPoint.x,
+            y: spawnPoint.y,
+            angle: angle,
+            distanceX: distanceX,
+            distanceY: distanceY,
+            duration: 850,
+            startedAt: startedAt,
+          };
+        });
+        window.setTimeout(scheduleShootingStar, 8000);
+      }, 8000);
+    }
+
     function animateDots(timestamp) {
       drawDots(timestamp);
       window.requestAnimationFrame(animateDots);
     }
 
+    scheduleShootingStar();
     window.requestAnimationFrame(animateDots);
   }
   window.addEventListener("resize", randomizeDots);

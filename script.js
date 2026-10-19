@@ -4,6 +4,112 @@ const initialTheme = savedTheme === "light" ? "light" : "dark";
 
 document.documentElement.dataset.theme = initialTheme;
 
+function initializeBackgroundDots() {
+  const canvas = document.createElement("canvas");
+  canvas.className = "background-dots";
+  canvas.setAttribute("aria-hidden", "true");
+  document.body.prepend(canvas);
+
+  const context = canvas.getContext("2d");
+  if (!context) {
+    throw new Error("Unable to initialize the background dot canvas.");
+  }
+
+  let dots = [];
+  let width = 0;
+  let height = 0;
+
+  function drawDots(timestamp = 0) {
+    const color = getComputedStyle(document.body)
+      .getPropertyValue("--page-pattern")
+      .trim();
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = color;
+    dots.forEach(function (dot) {
+      const motion = timestamp * dot.speed + dot.phase;
+      context.beginPath();
+      context.arc(
+        dot.x + Math.sin(motion) * 3,
+        dot.y + Math.cos(motion) * 3,
+        1,
+        0,
+        Math.PI * 2,
+      );
+      context.fill();
+    });
+  }
+
+  function randomizeDots() {
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const targetCount = Math.round((width * height) / 250);
+    const minimumDistance = 8;
+    const minimumDistanceSquared = minimumDistance * minimumDistance;
+    const gridSize = minimumDistance;
+    const grid = new Map();
+    dots = [];
+
+    for (
+      let attempt = 0;
+      attempt < targetCount * 10 && dots.length < targetCount;
+      attempt++
+    ) {
+      const dot = {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.0005 + Math.random() * 0.001,
+      };
+      const gridX = Math.floor(dot.x / gridSize);
+      const gridY = Math.floor(dot.y / gridSize);
+      let hasNearbyDot = false;
+
+      for (let x = gridX - 1; x <= gridX + 1 && !hasNearbyDot; x++) {
+        for (let y = gridY - 1; y <= gridY + 1 && !hasNearbyDot; y++) {
+          const neighbors = grid.get(x + "," + y) || [];
+          hasNearbyDot = neighbors.some(function (other) {
+            const dx = dot.x - other.x;
+            const dy = dot.y - other.y;
+            return dx * dx + dy * dy < minimumDistanceSquared;
+          });
+        }
+      }
+
+      if (!hasNearbyDot) {
+        dots.push(dot);
+        const cellKey = gridX + "," + gridY;
+        const cellDots = grid.get(cellKey) || [];
+        cellDots.push(dot);
+        grid.set(cellKey, cellDots);
+      }
+    }
+
+    drawDots();
+  }
+
+  randomizeDots();
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    function animateDots(timestamp) {
+      drawDots(timestamp);
+      window.requestAnimationFrame(animateDots);
+    }
+
+    window.requestAnimationFrame(animateDots);
+  }
+  window.addEventListener("resize", randomizeDots);
+  new MutationObserver(drawDots).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+}
+
+initializeBackgroundDots();
+
 function updateThemeToggle() {
   const isLight = document.documentElement.dataset.theme === "light";
   themeToggle.setAttribute(

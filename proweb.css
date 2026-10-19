@@ -2064,6 +2064,93 @@ h2.ach {
   border-bottom: 1px solid var(--under-text);
   margin: 0 4px;
 }
+.skill-detail-card {
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+.skill-detail-card > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.skill-detail-card > summary::-webkit-details-marker {
+  display: none;
+}
+.skill-detail-card:hover,
+.skill-detail-card:focus-within,
+.skill-detail-card[open] {
+  border-color: var(--highlight);
+  box-shadow: 0 0 12px var(--highlight-dim);
+}
+.skill-detail-card:hover {
+  transform: translateY(-2px);
+}
+.skill-detail-card > summary:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
+}
+.skill-expand-hint {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--on-surface);
+  font-size: 10px;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+.skill-detail-card:hover .skill-expand-hint,
+.skill-detail-card:focus-within .skill-expand-hint,
+.skill-detail-card[open] .skill-expand-hint {
+  color: var(--highlight);
+}
+.skill-detail-card[open] .skill-expand-hint {
+  transform: rotate(45deg);
+}
+.skill-detail {
+  margin: 8px 6px 4px;
+  color: var(--on-surface);
+  font-size: 13px;
+  line-height: 1.6;
+  animation: skill-detail-reveal 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+@supports selector(details::details-content) {
+  .skill-detail-card {
+    interpolate-size: allow-keywords;
+  }
+  .skill-detail-card::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+      block-size 420ms cubic-bezier(0.2, 0.75, 0.25, 1),
+      opacity 260ms ease,
+      content-visibility 420ms allow-discrete;
+  }
+  .skill-detail-card[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+@keyframes skill-detail-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skill-detail-card,
+  .skill-expand-hint {
+    transition: none;
+  }
+  .skill-detail {
+    animation: none;
+  }
+}
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
@@ -2777,13 +2864,11 @@ main {
   touch-action: pan-y;
 }
 .certif,
-.certif-exp,
-.project-img {
+.certif-exp {
   cursor: zoom-in;
 }
 .certif:focus-visible,
-.certif-exp:focus-visible,
-.project-img:focus-visible {
+.certif-exp:focus-visible {
   outline: 3px solid var(--highlight);
   outline-offset: 3px;
 }
@@ -2856,7 +2941,6 @@ main {
   pointer-events: auto;
   transform: translateY(0);
 }
-.portfolio-search-dialog,
 .portfolio-image-dialog {
   max-width: min(94vw, 760px);
   max-height: 90vh;
@@ -2868,22 +2952,9 @@ main {
   color: var(--text);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
 }
-.portfolio-search-dialog::backdrop,
 .portfolio-image-dialog::backdrop {
   background: rgba(0, 0, 0, 0.76);
   backdrop-filter: blur(5px);
-}
-.portfolio-search-panel {
-  padding: 24px;
-  font-family: "Jetbrains Mono", monospace;
-}
-.portfolio-search-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 16px;
-  font-size: 17px;
 }
 .portfolio-dialog-close {
   width: 38px;
@@ -2891,65 +2962,6 @@ main {
   flex: 0 0 38px;
   font: inherit;
   font-size: 24px;
-}
-.portfolio-search-input {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 13px 15px;
-  border: 1px solid var(--outline);
-  border-radius: 8px;
-  background: var(--code-background);
-  color: var(--text);
-  font: inherit;
-}
-.portfolio-search-input:focus-visible {
-  border-color: var(--highlight);
-  outline: 2px solid var(--highlight);
-  outline-offset: 2px;
-}
-.portfolio-search-hint,
-.portfolio-search-status {
-  margin: 10px 0;
-  color: var(--on-surface);
-  font-size: 12px;
-}
-.portfolio-search-results {
-  display: grid;
-  max-height: 48vh;
-  gap: 6px;
-  overflow-y: auto;
-}
-.portfolio-search-result {
-  display: grid;
-  gap: 4px;
-  padding: 11px 13px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  background: transparent;
-  color: var(--text);
-  text-align: left;
-  font: inherit;
-  cursor: pointer;
-}
-.portfolio-search-result:hover,
-.portfolio-search-result:focus-visible {
-  border-color: var(--outline);
-  background: var(--cards-above);
-  outline: none;
-}
-.portfolio-search-result strong {
-  color: var(--highlight);
-}
-.portfolio-search-result span {
-  overflow: hidden;
-  color: var(--on-surface);
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.portfolio-search-status {
-  min-height: 1em;
-  margin-bottom: 0;
 }
 .portfolio-image-dialog {
   width: min(94vw, 1280px);
@@ -3010,9 +3022,6 @@ main {
   .portfolio-tool-button {
     width: 42px;
     height: 42px;
-  }
-  .portfolio-search-panel {
-    padding: 18px;
   }
   .portfolio-image-panel {
     grid-template-columns: 36px minmax(0, 1fr) 36px;

@@ -462,14 +462,6 @@ function initializePortfolioTools() {
   const tools = document.createElement("div");
   tools.className = "portfolio-tools";
 
-  const searchButton = document.createElement("button");
-  searchButton.className = "portfolio-tool-button portfolio-search-button";
-  searchButton.type = "button";
-  searchButton.setAttribute("aria-label", "Search this portfolio");
-  searchButton.title = "Search this portfolio (Ctrl+K)";
-  searchButton.innerHTML =
-    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>';
-
   const topButton = document.createElement("button");
   topButton.className = "portfolio-tool-button portfolio-top-button";
   topButton.type = "button";
@@ -478,7 +470,7 @@ function initializePortfolioTools() {
   topButton.innerHTML =
     '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>';
 
-  tools.append(searchButton, topButton);
+  tools.appendChild(topButton);
   document.body.appendChild(tools);
 
   function updateScrollProgress() {
@@ -511,153 +503,6 @@ function initializePortfolioTools() {
 
   topButton.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
-  });
-
-  const searchDialog = document.createElement("dialog");
-  searchDialog.className = "portfolio-search-dialog";
-  searchDialog.setAttribute("aria-label", "Search this portfolio");
-  searchDialog.innerHTML =
-    '<div class="portfolio-search-panel"><div class="portfolio-search-heading"><label for="portfolio-search-input">Search this portfolio</label><button class="portfolio-dialog-close" type="button" aria-label="Close search">×</button></div><input id="portfolio-search-input" class="portfolio-search-input" type="search" placeholder="Try “award”, “project”, or a skill…" autocomplete="off"><p class="portfolio-search-hint">Press Ctrl+K to open · Esc to close</p><div class="portfolio-search-results" role="listbox" aria-label="Search results"></div><p class="portfolio-search-status" role="status" aria-live="polite"></p></div>';
-  document.body.appendChild(searchDialog);
-
-  const searchInput = searchDialog.querySelector(".portfolio-search-input");
-  const searchResults = searchDialog.querySelector(".portfolio-search-results");
-  const searchStatus = searchDialog.querySelector(".portfolio-search-status");
-
-  function collectSearchItems() {
-    const items = [];
-    const visited = new Set();
-    const addItem = function (item) {
-      if (!item.label || visited.has(item.key)) return;
-      visited.add(item.key);
-      items.push(item);
-    };
-
-    document.querySelectorAll(".sidebar a[href], .top-nav a[href]").forEach(
-      function (link) {
-        const href = link.getAttribute("href");
-        const label =
-          link.textContent.trim() ||
-          link.getAttribute("aria-label") ||
-          link.getAttribute("title") ||
-          href;
-        addItem({
-          key: "link:" + href,
-          label: label,
-          detail: "Open page",
-          href: href,
-        });
-      },
-    );
-
-    document.querySelectorAll("h1, h2, h3").forEach(function (heading) {
-      if (heading.closest(".achieve-card, .work-card, .Project-card, .Project-card-n, .Uni-card")) {
-        return;
-      }
-      const label = heading.textContent.trim();
-      addItem({
-        key: "heading:" + label,
-        label: label,
-        detail: "Section on this page",
-        element: heading,
-      });
-    });
-
-    document
-      .querySelectorAll(
-        ".achieve-card, .work-card, .Project-card, .Project-card-n, .Uni-card, .specs-card, .add-card",
-      )
-      .forEach(function (card, index) {
-        if (card.closest('.achievement-carousel-slide[aria-hidden="true"]')) {
-          return;
-        }
-        const heading = card.querySelector(
-          "h1, h2, h3, h4, .project-name, .job, .identity",
-        );
-        const label =
-          (heading && heading.textContent.trim()) ||
-          card.textContent.trim().replace(/\s+/g, " ").slice(0, 72);
-        const detail = card.textContent.trim().replace(/\s+/g, " ").slice(0, 180);
-        addItem({
-          key: "card:" + index + ":" + label,
-          label: label,
-          detail: detail,
-          element: card,
-        });
-      });
-
-    return items;
-  }
-
-  function renderSearchResults() {
-    const query = searchInput.value.trim().toLocaleLowerCase();
-    searchResults.replaceChildren();
-    const allMatches = collectSearchItems()
-      .filter(function (item) {
-        return (
-          !query ||
-          (item.label + " " + item.detail).toLocaleLowerCase().includes(query)
-        );
-      });
-    const matches = allMatches.slice(0, 12);
-
-    matches.forEach(function (item) {
-      const result = document.createElement("button");
-      result.className = "portfolio-search-result";
-      result.type = "button";
-      result.setAttribute("role", "option");
-      const title = document.createElement("strong");
-      title.textContent = item.label;
-      const detail = document.createElement("span");
-      detail.textContent = item.detail;
-      result.append(title, detail);
-      result.addEventListener("click", function () {
-        if (item.href) {
-          window.location.href = item.href;
-          return;
-        }
-        searchDialog.close();
-        item.element.scrollIntoView({
-          behavior: reducedMotion ? "auto" : "smooth",
-          block: "center",
-        });
-        item.element.tabIndex = -1;
-        item.element.focus({ preventScroll: true });
-      });
-      searchResults.appendChild(result);
-    });
-
-    searchStatus.textContent = matches.length
-      ? allMatches.length > matches.length
-        ? "Showing " + matches.length + " of " + allMatches.length + " results"
-        : allMatches.length + " results"
-      : "No matching sections or items.";
-  }
-
-  function openSearch() {
-    if (!searchDialog.open) {
-      searchDialog.showModal();
-      searchInput.value = "";
-      renderSearchResults();
-      searchInput.focus();
-    }
-  }
-
-  searchButton.addEventListener("click", openSearch);
-  searchDialog
-    .querySelector(".portfolio-dialog-close")
-    .addEventListener("click", function () {
-      searchDialog.close();
-    });
-  searchInput.addEventListener("input", renderSearchResults);
-  searchDialog.addEventListener("click", function (event) {
-    if (event.target === searchDialog) searchDialog.close();
-  });
-  document.addEventListener("keydown", function (event) {
-    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-      event.preventDefault();
-      openSearch();
-    }
   });
 
   const imageDialog = document.createElement("dialog");
@@ -698,7 +543,7 @@ function initializePortfolioTools() {
   function openImagePreview(image) {
     galleryImages = Array.from(
       document.querySelectorAll(
-        ".certif, .certif-exp, .project-img",
+        ".certif, .certif-exp",
       ),
     ).filter(function (candidate) {
       return candidate.naturalWidth > 0;
@@ -712,7 +557,7 @@ function initializePortfolioTools() {
   document.addEventListener("click", function (event) {
     const image =
       event.target instanceof Element
-        ? event.target.closest(".certif, .certif-exp, .project-img")
+        ? event.target.closest(".certif, .certif-exp")
         : null;
     if (!image || image.naturalWidth === 0) return;
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -723,7 +568,7 @@ function initializePortfolioTools() {
   document.addEventListener("keydown", function (event) {
     const image =
       event.target instanceof Element
-        ? event.target.closest(".certif, .certif-exp, .project-img")
+        ? event.target.closest(".certif, .certif-exp")
         : null;
     if (image && (event.key === "Enter" || event.key === " ")) {
       event.preventDefault();
@@ -752,7 +597,7 @@ function initializePortfolioTools() {
 
   function makePreviewImagesAccessible() {
     document
-      .querySelectorAll(".certif, .certif-exp, .project-img")
+      .querySelectorAll(".certif, .certif-exp")
       .forEach(function (image) {
         if (image.naturalWidth === 0 || image.dataset.previewReady) return;
         const card = image.closest(
@@ -773,7 +618,7 @@ function initializePortfolioTools() {
   }
 
   makePreviewImagesAccessible();
-  document.querySelectorAll(".certif, .certif-exp, .project-img").forEach(
+  document.querySelectorAll(".certif, .certif-exp").forEach(
     function (image) {
       image.addEventListener("load", makePreviewImagesAccessible, {
         once: true,

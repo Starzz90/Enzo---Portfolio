@@ -31,7 +31,7 @@
   --cards-above-dark: hsla(0, 0%, 0%, 0.751);
   --list-hover: hsla(0, 0%, 6%, 0.751);
   --stanford: #8c1515;
-  --page-pattern: rgba(209, 209, 209, 0.166);
+  --page-pattern: rgba(209, 209, 209, 0.188);
   --page-pattern-empty: rgba(23, 23, 23, 0);
   --page-gradient: linear-gradient(
     to right top,
@@ -83,7 +83,7 @@ html[data-theme="light"] {
   --accent: hsl(102, 100%, 29%);
   --cards-above-dark: rgba(224, 217, 207, 0.9);
   --list-hover: rgba(217, 209, 197, 0.9);
-  --page-pattern: rgba(108, 101, 101, 0.358);
+  --page-pattern: rgba(108, 101, 101, 0.406);
   --page-pattern-empty: rgba(28, 28, 28, 0);
   --page-gradient: linear-gradient(120deg, #f4f0e8, #fffdf8 55%, #f7d7bd);
   --count: hsl(0, 0%, 22%);

@@ -3114,7 +3114,6 @@ inputs:-webkit-autofill-active {
 .top-nav .top-option:hover,
 .top-nav .top-option:focus-visible,
 .top-nav .top-option:active {
-  background-color: var(--top-nav-icon);
   box-shadow: none;
   color: var(--highlight);
   outline: none;

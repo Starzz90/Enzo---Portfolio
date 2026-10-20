@@ -1,7 +1,7 @@
 :root {
   --background-color: #101010ca;
   --header: #ecfeff;
-  --cards: #00000028;
+  --cards: #0000004d;
   --name: #000000c5;
   --cards-above: #34343450;
   --cards-above-tools: #3d3d3d4e;
@@ -972,6 +972,66 @@ h2.Engine {
   color: var(--work-content);
   font-size: 15px;
   font-family: "Jetbrains Mono", monospace;
+}
+.experience-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.experience-heading .job {
+  min-width: 0;
+  margin: 0;
+}
+.experience-toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--top-nav-dim);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  color: #c7c7c7;
+  cursor: pointer;
+}
+.experience-toggle svg {
+  transition: transform 180ms ease;
+}
+.experience-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.experience-toggle:hover {
+  color: var(--highlight);
+  transition: color 0.2s ease;
+}
+.experience-date {
+  justify-self: end;
+  color: var(--achievement);
+  font-family: "Jetbrains Mono", monospace;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.work-content[hidden] {
+  display: none;
+}
+.work-content:not([hidden]) {
+  margin-top: 8px;
+}
+.experience-toggle:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--highlight);
+}
+@media (max-width: 768px) {
+  .experience-heading {
+    gap: 6px;
+  }
+  .experience-date {
+    font-size: 10px;
+  }
 }
 @media (max-width: 768px) {
   .specs-card {

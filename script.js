@@ -770,6 +770,76 @@ document
     }
   });
 
+document.querySelectorAll(".experience-toggle").forEach(function (toggle) {
+  const descriptionId = toggle.getAttribute("aria-controls");
+  const description = descriptionId
+    ? document.getElementById(descriptionId)
+    : null;
+
+  if (!description) {
+    throw new Error("Experience description toggle is missing its content.");
+  }
+
+  let descriptionAnimation;
+
+  toggle.addEventListener("click", function () {
+    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isExpanded));
+    toggle.setAttribute(
+      "aria-label",
+      (isExpanded ? "Show" : "Hide") +
+        " description for " +
+        toggle
+          .closest(".experience-heading")
+          .querySelector(".job")
+          .textContent.trim(),
+    );
+
+    if (descriptionAnimation) descriptionAnimation.cancel();
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      description.hidden = isExpanded;
+      return;
+    }
+
+    if (isExpanded) {
+      const currentHeight = description.getBoundingClientRect().height;
+      descriptionAnimation = description.animate(
+        [
+          { height: currentHeight + "px", opacity: 1 },
+          { height: "0px", opacity: 0 },
+        ],
+        { duration: 240, easing: "ease-in", fill: "forwards" },
+      );
+      descriptionAnimation.onfinish = function () {
+        description.hidden = true;
+        description.style.removeProperty("height");
+        description.style.removeProperty("opacity");
+        descriptionAnimation.cancel();
+        descriptionAnimation = null;
+      };
+      return;
+    }
+
+    description.hidden = false;
+    description.style.height = "auto";
+    const targetHeight = description.getBoundingClientRect().height;
+    descriptionAnimation = description.animate(
+      [
+        { height: "0px", opacity: 0 },
+        { height: targetHeight + "px", opacity: 1 },
+      ],
+      { duration: 280, easing: "ease-out", fill: "forwards" },
+    );
+    descriptionAnimation.onfinish = function () {
+      description.style.removeProperty("height");
+      description.style.removeProperty("opacity");
+      descriptionAnimation.cancel();
+      descriptionAnimation = null;
+    };
+  });
+});
+
 const revealTargets = Array.from(
   document.querySelectorAll(
     ".main-head, .specs-card, .add-card, .Project-card, .Project-card-n, .Uni-card, .work-card",

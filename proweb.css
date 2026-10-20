@@ -194,7 +194,7 @@ body {
   max-width: 500px;
   display: flex;
   align-items: center;
-  top: 20px;
+  top: 30px;
   bottom: auto;
   left: 50%;
   transform: translateX(-50%);

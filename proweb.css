@@ -1501,6 +1501,9 @@ h3 {
   background-color: rgb(30, 27, 98);
   padding: 10px;
 }
+#py.image-container svg {
+  transform: scale(0.87);
+}
 #php.image-container {
   background-color: rgb(132, 126, 174);
 }
@@ -1535,7 +1538,8 @@ h3 {
   transform: scale(1.5);
 }
 #copilot.image-container {
-  background-color: rgb(70, 0, 155);
+  background-image: linear-gradient(#9743ff 0%, #2d009d 100%);
+  background-color: rgb(87, 0, 163);
 }
 #gemini.image-container {
   background-color: rgb(230, 230, 230);

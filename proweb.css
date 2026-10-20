@@ -1526,7 +1526,7 @@ h3 {
   background-color: rgb(3, 113, 130);
 }
 #claude.image-container {
-  background-color: rgb(255, 152, 62);
+  background-color: #C15F3C;
 }
 #openai.image-container {
   background-color: rgb(28, 28, 28);
@@ -1535,7 +1535,7 @@ h3 {
   transform: scale(1.5);
 }
 #copilot.image-container {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(70, 0, 155);
 }
 #gemini.image-container {
   background-color: rgb(230, 230, 230);

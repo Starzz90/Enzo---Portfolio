@@ -189,8 +189,8 @@ function initializeBackgroundDots() {
             startedAt: startedAt,
           };
         });
-        window.setTimeout(scheduleShootingStar, 8000);
-      }, 8000);
+        window.setTimeout(scheduleShootingStar, 3500 + Math.random() * 4000);
+      }, 3500 + Math.random() * 4000);
     }
 
     function animateDots(timestamp) {

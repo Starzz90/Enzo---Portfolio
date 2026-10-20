@@ -59,10 +59,10 @@
 html[data-theme="light"] {
   --background-color: #f1e7d6;
   --header: #202329;
-  --cards: rgba(247, 240, 224, 0.847);
+  --cards: rgba(247, 240, 224, 0.42);
   --name: rgba(63, 63, 63, 0.9);
-  --cards-above: #beb9ae;
-  --cards-above-tools: #d9d1c5;
+  --cards-above: #beb9aea0;
+  --cards-above-tools: #d9d1c59f;
   --outline: rgba(31, 35, 41, 0.2);
   --text: #202329;
   --on-surface: rgba(32, 35, 41, 0.7);

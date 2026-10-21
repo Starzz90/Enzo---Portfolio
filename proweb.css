@@ -312,6 +312,12 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   .space-between {
     gap: 5px;
   }
+  .work-card {
+    border-radius: 15px;
+  }
+  .achieve-card {
+    border-radius: 15px;
+  }
 }
 .contain {
   width: 100%;
@@ -636,6 +642,7 @@ h1 {
   flex-direction: column;
   border: 1px solid var(--achievement);
   max-height: 500px;
+  border-radius: 10px;
   position: relative;
   background-color: var(--gradient);
   padding-bottom: 10px;
@@ -649,6 +656,7 @@ h1 {
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   border: 1px solid var(--achievement);
   max-height: 500px;
@@ -848,7 +856,7 @@ h2.Engine {
   margin-left: 0;
   border: 3px solid var(--cards-above);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 7px;
+  margin-top: 15px;
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
@@ -858,7 +866,7 @@ h2.Engine {
   flex: 1 1 auto;
   box-sizing: border-box;
   position: relative;
-  padding: 10px 10px;
+  padding: 20px 20px;
   background-color: var(--cards);
 }
 @media (max-width: 768px) {
@@ -909,7 +917,7 @@ h2.Engine {
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 @media (max-width: 768px) {
   .tag {
@@ -977,9 +985,9 @@ h2.Engine {
 .experience-heading .job {
   min-width: 0;
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.2;
-  font-weight: 550;
+  font-weight: 800;
   font-family: "Rajdhani", sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1012,8 +1020,8 @@ h2.Engine {
   justify-self: end;
   color: var(--achievement);
   font-family: "Jetbrains Mono", monospace;
-  font-size: 13px;
-  white-space: wrap;
+  font-size: 15px;
+  white-space: nowrap;
 }
 .work-content[hidden] {
   display: none;
@@ -1031,7 +1039,7 @@ h2.Engine {
     gap: 6px;
   }
   .experience-date {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 @media (max-width: 768px) {

@@ -848,7 +848,7 @@ h2.Engine {
   margin-left: 0;
   border: 3px solid var(--cards-above);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 15px;
+  margin-top: 7px;
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
@@ -858,7 +858,7 @@ h2.Engine {
   flex: 1 1 auto;
   box-sizing: border-box;
   position: relative;
-  padding: 20px 20px;
+  padding: 10px 10px;
   background-color: var(--cards);
 }
 @media (max-width: 768px) {

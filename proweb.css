@@ -312,12 +312,6 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   .space-between {
     gap: 5px;
   }
-  .work-card {
-    border-radius: 15px;
-  }
-  .achieve-card {
-    border-radius: 15px;
-  }
 }
 .contain {
   width: 100%;
@@ -983,6 +977,13 @@ h2.Engine {
 .experience-heading .job {
   min-width: 0;
   margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 550;
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
 }
 .experience-toggle {
   display: grid;
@@ -1012,7 +1013,7 @@ h2.Engine {
   color: var(--achievement);
   font-family: "Jetbrains Mono", monospace;
   font-size: 13px;
-  white-space: nowrap;
+  white-space: wrap;
 }
 .work-content[hidden] {
   display: none;
@@ -1030,7 +1031,7 @@ h2.Engine {
     gap: 6px;
   }
   .experience-date {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 @media (max-width: 768px) {

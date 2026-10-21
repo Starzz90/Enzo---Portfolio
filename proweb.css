@@ -1031,7 +1031,7 @@ h2.Engine {
     gap: 6px;
   }
   .experience-date {
-    font-size: 13px;
+    font-size: 11px;
   }
 }
 @media (max-width: 768px) {

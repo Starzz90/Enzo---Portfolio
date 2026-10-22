@@ -296,7 +296,6 @@ body {
   color: var(--highlight);
   border-color: var(--highlight);
   outline: none;
-  animation: box-shadow-glow 2s infinite;
 }
 .theme-toggle .theme-icon {
   display: none;

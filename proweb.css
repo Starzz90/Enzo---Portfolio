@@ -1455,7 +1455,6 @@ h2.Engine {
   width: fit-content;
   height: fit-content;
   padding: 2px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: 12px;
   margin-bottom: 2px;
   border: 2px solid var(--highlight);
@@ -1467,7 +1466,7 @@ h2.Engine {
   transition: glow 5s ease;
 }
 .used {
-  background-color: var(--);
+  background-color: var(--used);
   border-radius: 20px;
   width: 100%;
   height: fit-content;

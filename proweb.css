@@ -1135,6 +1135,12 @@ h2.Engine {
   margin: 0;
   font-size: 12px;
 }
+@media (max-width: 799px) {
+  .experience-item .cert-tag {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .experience-item .experience-heading {
   margin-top: 8px;
 }
@@ -1287,7 +1293,8 @@ h2.Engine {
   position: fixed;
   top: 0;
   right: 0;
-  left: auto; /* don't stretch full width */
+  left: auto;
+  box-sizing: border-box; /* don't stretch full width */
   border-radius: 0 8px 8px 0;
   display: flex;
   flex-direction: column;

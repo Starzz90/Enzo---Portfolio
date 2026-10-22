@@ -2,6 +2,7 @@
   --background-color: #101010ca;
   --header: #ecfeff;
   --cards: #0000004d;
+  --li-marker: #d3d3d3;
   --name: #000000c5;
   --cards-above: #34343450;
   --cards-above-tools: #3d3d3d4e;
@@ -23,6 +24,7 @@
   --content-max: 1200px;
   --content-half: calc(var(--content-max) / 2);
   --work-content: rgb(250, 250, 250);
+  --achieve-content: #a6a6a6;
   --cert: rgb(255, 123, 0);
   --below: rgb(12, 12, 12);
   --achieve: rgb(8, 8, 8);
@@ -62,6 +64,7 @@ html[data-theme="light"] {
   --background-color: #f1e7d6;
   --header: #202329;
   --cards: rgba(247, 240, 224, 0.42);
+  --li-marker: #0a0a0a;
   --name: rgba(63, 63, 63, 0.9);
   --cards-above: #beb9aea0;
   --cards-above-tools: #d9d1c59f;
@@ -79,6 +82,7 @@ html[data-theme="light"] {
   --project-card: rgba(255, 255, 255, 0.9);
   --sidebar: rgba(213, 213, 213, 0.78);
   --work-content: #0A0A0A;
+  --achieve-content: #66615a;
   --below: #e9e3d9;
   --achieve: #eeebdd;
   --gradient: #fffdf8;
@@ -939,7 +943,8 @@ h2.Engine {
   h3 {
     font-size: 20px;
   }
-  .work-content {
+  .work-content,
+  .achieve-content {
     font-size: 7px;
   }
   .cert-tag-n {
@@ -976,6 +981,11 @@ h2.Engine {
   font-size: 14px;
   font-family: "Jetbrains Mono", monospace;
 }
+.achieve-content {
+  color: var(--achieve-content);
+  font-size: 14px;
+  font-family: "Jetbrains Mono", monospace;
+}
 .experience-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
@@ -1000,11 +1010,10 @@ h2.Engine {
   width: 32px;
   height: 32px;
   padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: var(--top-nav-dim);
+  border-color: transparent;
+  background-color: transparent;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
-  color: #c7c7c7;
+  color: var(--li-marker);
   cursor: pointer;
 }
 .experience-toggle svg {
@@ -2387,7 +2396,7 @@ li {
   list-style: disc;
 }
 li::marker {
-  color: #d3d3d3;
+  color: var(--li-marker);
 }
 .list {
   margin-bottom: 5px;

@@ -833,6 +833,13 @@ h2.Engine {
   margin-top: 40px;
   margin-bottom: 20px;
 }
+@media(max-width: 768px) {
+  h2.Engine {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
 .specs-card {
   background-color: var(--cards-above-dark);
   padding: 10px 10px;
@@ -942,7 +949,7 @@ h2.Engine {
   flex-wrap: wrap;
   margin-left: 20px;
 }
-@media (max-width < 850px) {
+@media (max-width: 850px) {
   .tag {
     font-size: 12px;
   }
@@ -984,6 +991,10 @@ h2.Engine {
   justify-content: space-between;
   margin-bottom: 5px;
   left: 0;
+}
+.engineering-heading-row {
+  justify-content: flex-start;
+  gap: 16px;
 }
 .cert-tag-BOTTOM {
   display: flex;
@@ -1523,7 +1534,7 @@ h2 {
 }
 h2.code {
   letter-spacing: 5px;
-  font-size: 20px;
+  font-size: 25px;
   background-color: var(--code-background);
   padding: 30px 60px;
   border-radius: 10px;
@@ -1927,6 +1938,7 @@ li.achieve {
   overflow-wrap: break-word;
   box-sizing: border-box;
   margin-right: 20px;
+  margin-bottom: 12px;
 }
 .xampp {
   width: 150px;
@@ -3043,6 +3055,13 @@ inputs:-webkit-autofill-active {
   align-items: center;
   gap: 8px;
 }
+@media (max-width: 800px) {
+  .engineering-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+}
 
 .achievement-carousel-viewport {
   touch-action: pan-y;
@@ -3283,8 +3302,6 @@ inputs:-webkit-autofill-active {
 }
 .top-option:hover,
 .top-option:focus-visible,
-.theme-toggle:hover,
-.theme-toggle:focus-visible,
 .redirect:hover,
 .redirect-media:hover,
 .achieve-others:hover,

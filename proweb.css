@@ -78,7 +78,7 @@ html[data-theme="light"] {
   --achievement: #44423d;
   --project-card: rgba(255, 255, 255, 0.9);
   --sidebar: rgba(213, 213, 213, 0.78);
-  --work-content: rgba(32, 35, 41, 0.58);
+  --work-content: #0A0A0A;
   --below: #e9e3d9;
   --achieve: #eeebdd;
   --gradient: #fffdf8;
@@ -940,7 +940,7 @@ h2.Engine {
     font-size: 20px;
   }
   .work-content {
-    font-size: 6px;
+    font-size: 10px;
   }
   .cert-tag-n {
     flex-direction: column;

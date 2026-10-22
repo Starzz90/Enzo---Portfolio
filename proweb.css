@@ -379,6 +379,25 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   justify-content: space-between;
   top: 5px;
 }
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.homepage-status-row {
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (max-width: 800px) {
+  .homepage-status-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .homepage-status-row .lined {
+    flex-wrap: wrap;
+  }
+}
 @media (max-width: 768px) {
   .one-line {
     flex-direction: column;
@@ -649,7 +668,6 @@ h1 {
   border-radius: 10px;
   position: relative;
   background-color: var(--gradient);
-  padding-bottom: 10px;
 }
 .Project-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);

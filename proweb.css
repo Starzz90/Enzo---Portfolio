@@ -232,6 +232,7 @@ body {
 
 .top-option + .top-option::before {
   content: "";
+  display: block;
   position: absolute;
   left: -11px;
   top: 50%;

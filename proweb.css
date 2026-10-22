@@ -1794,10 +1794,6 @@ ul.listing {
   padding: 0;
   letter-spacing: 3px;
 }
-li {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
 li.achieve {
   display: flex;
   overflow-x: hidden;

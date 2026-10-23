@@ -1036,6 +1036,15 @@ h2.job{
   text-transform: uppercase;
   color: var(--text);
 }
+@media (max-width: 768px) {
+  .experience-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+  }
+  .experience-heading .job {
+    font-size: 14px;
+  }
+}
 .experience-toggle,
 .experience-group-toggle {
   display: grid;
@@ -1140,7 +1149,7 @@ h2.job{
   padding: 18px 0 0;
 }
 .experience-group-heading .job {
-  color: hsl(23, 100%, 77%);
+  color: hsl(23, 100%, 66%);
 }
 .experience-group-toggle {
   display: grid;

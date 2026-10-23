@@ -840,31 +840,6 @@ document.querySelectorAll(".experience-toggle").forEach(function (toggle) {
   });
 });
 
-document.querySelectorAll(".experience-group-toggle").forEach(function (toggle) {
-  const groupListId = toggle.getAttribute("aria-controls");
-  const groupList = groupListId ? document.getElementById(groupListId) : null;
-
-  if (!groupList) {
-    throw new Error("Experience group toggle is missing its list.");
-  }
-
-  toggle.addEventListener("click", function () {
-    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isExpanded));
-    toggle.setAttribute(
-      "aria-label",
-      (isExpanded ? "Show" : "Hide") +
-        " experiences for " +
-        toggle
-          .closest(".experience-heading")
-          .querySelector(".job")
-          .textContent.replace(/^REF_ID:\s*/, "")
-          .trim(),
-    );
-    groupList.hidden = isExpanded;
-  });
-});
-
 const revealTargets = Array.from(
   document.querySelectorAll(
     ".main-head, .specs-card, .add-card, .Project-card, .Project-card-n, .Uni-card, .work-card",

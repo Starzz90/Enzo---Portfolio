@@ -963,7 +963,7 @@ h2.Engine {
     font-size: 20px;
   }
   h2.job {
-    font-size: 10px;
+    font-size: 18px;
   }
   h3 {
     font-size: 20px;
@@ -984,9 +984,6 @@ h2.Engine {
   justify-content: space-between;
   margin-bottom: 5px;
   left: 0;
-}
-h2.job{
-  font-size: 12px;
 }
 .cert-tag-n {
   display: flex;
@@ -1036,17 +1033,7 @@ h2.job{
   text-transform: uppercase;
   color: var(--text);
 }
-@media (max-width: 768px) {
-  .experience-heading {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 6px;
-  }
-  .experience-heading .job {
-    font-size: 14px;
-  }
-}
-.experience-toggle,
-.experience-group-toggle {
+.experience-toggle {
   display: grid;
   place-items: center;
   width: 32px;
@@ -1058,16 +1045,13 @@ h2.job{
   color: var(--li-marker);
   cursor: pointer;
 }
-.experience-toggle svg,
-.experience-group-toggle svg {
+.experience-toggle svg {
   transition: transform 180ms ease;
 }
-.experience-toggle[aria-expanded="true"] svg,
-.experience-group-toggle[aria-expanded="true"] svg {
+.experience-toggle[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
-.experience-toggle:hover,
-.experience-group-toggle:hover {
+.experience-toggle:hover {
   color: var(--highlight);
   transition: color 0.2s ease;
 }
@@ -1089,41 +1073,38 @@ h2.job{
   outline-offset: 3px;
   box-shadow: 0 0 0 2px var(--highlight);
 }
-.experience-group-toggle:focus-visible {
-  outline: 2px solid var(--highlight);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--highlight);
-}
 .experience-list {
   list-style: none;
   margin: 0 0 30px;
   padding: 0;
 }
-.experience-group {
+.experience-item {
   position: relative;
   list-style: none;
-  padding-left: 34px;
+  padding: 22px 0 20px 34px;
 }
-.experience-group::before {
+.experience-item::before {
   position: absolute;
-  top: 0;
-  bottom: -18px;
   left: 12px;
-  width: 2px;
-  background: var(--cards-above);
   content: "";
 }
-.experience-group:first-child::before {
+.experience-item::before {
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--cards-above);
+}
+.experience-item:first-child::before {
   top: 28px;
 }
-.experience-group:last-child::before {
+.experience-item:last-child::before {
   bottom: auto;
   height: 28px;
 }
-.experience-group::after {
+.experience-item::after {
   position: absolute;
-  top: 27px;
   left: 7px;
+  top: 27px;
   width: 12px;
   height: 12px;
   border: 2px solid var(--highlight);
@@ -1132,59 +1113,44 @@ h2.job{
   box-sizing: border-box;
   content: "";
 }
-.experience-group + .experience-group {
-  margin-top: 18px;
-}
-.experience-group-list {
-  list-style: none;
+.experience-item .cert-tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 20px;
   margin: 0;
-  padding: 0;
 }
-.experience-group-list[hidden] {
-  display: none;
+.experience-item .cert {
+  gap: 6px;
+  color: var(--highlight);
+  font-size: 14px;
 }
-.experience-group-heading {
-  grid-template-columns: minmax(0, 1fr) auto;
-  margin-top: 0;
-  padding: 18px 0 0;
+.experience-item .cert svg {
+  width: 18px;
+  height: 18px;
 }
-.experience-group-heading .job {
-  color: hsl(23, 100%, 66%);
+.experience-item .tagt {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  font-size: 12px;
 }
-.experience-group-toggle {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border-color: transparent;
-  background-color: transparent;
-  color: var(--li-marker);
-  cursor: pointer;
-}
-.experience-item {
-  position: relative;
-  list-style: none;
-  padding: 0;
+@media (max-width: 799px) {
+  .experience-item .cert-tag {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .experience-item .experience-heading {
-  margin-top: 4px;
-}
-.experience-item .experience-heading .job {
-  font-size: 16px;
+  margin-top: 8px;
 }
 .experience-item .work-content {
-  font-size: 14px;
   line-height: 1.6;
 }
 .experience-item .work-content ul {
   margin: 0;
   padding-left: 20px;
-}
-@media (max-width: 799px) {
-  .experience-item .work-content {
-    font-size: 11px;
-  }
 }
 @media (max-width: 768px) {
   .experience-heading {
@@ -1194,22 +1160,16 @@ h2.job{
     font-size: 10px;
   }
   .experience-item {
-    padding: 0;
+    padding: 18px 0 18px 30px;
   }
-  .experience-group {
-    padding-left: 30px;
-  }
-  .experience-group:first-child::before {
+  .experience-item:first-child::before {
     top: 23px;
   }
-  .experience-group:last-child::before {
+  .experience-item:last-child::before {
     height: 23px;
   }
-  .experience-group::after {
+  .experience-item::after {
     top: 22px;
-  }
-  .experience-group-heading {
-    padding-top: 18px;
   }
 }
 @media (max-width: 768px) {

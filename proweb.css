@@ -39,9 +39,9 @@
   --page-pattern-empty: rgba(23, 23, 23, 0);
   --page-gradient: linear-gradient(
     to right top,
-    rgb(255, 102, 0),
-    rgb(228, 91, 0),
-    rgb(119, 48, 0),
+    rgb(167, 67, 0),
+    rgb(134, 53, 0),
+    rgb(92, 37, 0),
     rgb(31, 12, 0),
     rgb(20, 10, 0),
     rgb(16, 6, 0),

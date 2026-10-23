@@ -873,3 +873,18 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     element.classList.add("is-visible");
   });
 }
+    const experienceList = document.querySelector(".experience-list");
+    const experienceItems = Array.from(experienceList.children);
+    const getStartDate = (item) => {
+      const date = item.querySelector(".experience-date").textContent.match(/\d{4}\.\d{2}/)[0];
+      const [year, month] = date.split(".").map(Number);
+      return year * 12 + month;
+    };
+
+    experienceItems
+      .map((item, index) => ({ item, index }))
+      .sort(
+        (a, b) =>
+          getStartDate(b.item) - getStartDate(a.item) || a.index - b.index,
+      )
+      .forEach(({ item }) => experienceList.appendChild(item));

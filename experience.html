@@ -334,7 +334,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-1" aria-label="Show description for Founder of MERMISSIONS">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2026.08 - N/A</span>
+          <span class="experience-date">Aug 2026 - Present</span>
         </div>
         <div class="work-content" id="experience-description-1" hidden>
             <ul>
@@ -373,7 +373,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-2" aria-label="Show description for Student Council 1st Division Chairman">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2026.03 - 2026.11</span>
+          <span class="experience-date">Mar 2026 - Nov 2026</span>
         </div>
         <div class="work-content" id="experience-description-2" hidden>
           <ul>
@@ -413,7 +413,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-3" aria-label="Show description for NSDC Debate Captain">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2025.03 - 2026.07</span>
+          <span class="experience-date">Mar 2025 - Jul 2026</span>
         </div>
         <div class="work-content" id="experience-description-3" hidden>
           <ul>
@@ -454,7 +454,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-4" aria-label="Show description for Study Abroad Peer Mentor">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2026.07 - N/A</span>
+          <span class="experience-date">Jul 2026 - Present</span>
         </div>
         <div class="work-content" id="experience-description-4" hidden>
             <ul>
@@ -494,7 +494,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-5" aria-label="Show description for NSDC Debate Coach">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2026.07 - N/A</span>
+          <span class="experience-date">Jul 2026 - Present</span>
         </div>
         <div class="work-content" id="experience-description-5" hidden>
           <ul>
@@ -544,7 +544,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-6" aria-label="Show description for OSN Informatics">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2025.03 - 2026.07</span>
+          <span class="experience-date">Mar 2025 - Jul 2026</span>
         </div>
         <div class="work-content" id="experience-description-6" hidden>
           <ul>
@@ -582,7 +582,7 @@
           <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-description-7" aria-label="Show description for OSIS Documentation Member">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <span class="experience-date">2021.09 - 2022.08</span>
+          <span class="experience-date">Sep 2021 - Aug 2022</span>
         </div>
         <div class="work-content" id="experience-description-7" hidden>
           <ul>
@@ -596,21 +596,4 @@
     </div>
   </body>
   <script src="script.js"></script>
-  <script>
-    const experienceList = document.querySelector(".experience-list");
-    const experienceItems = Array.from(experienceList.children);
-    const getStartDate = (item) => {
-      const date = item.querySelector(".experience-date").textContent.match(/\d{4}\.\d{2}/)[0];
-      const [year, month] = date.split(".").map(Number);
-      return year * 12 + month;
-    };
-
-    experienceItems
-      .map((item, index) => ({ item, index }))
-      .sort(
-        (a, b) =>
-          getStartDate(b.item) - getStartDate(a.item) || a.index - b.index,
-      )
-      .forEach(({ item }) => experienceList.appendChild(item));
-  </script>
 </html>

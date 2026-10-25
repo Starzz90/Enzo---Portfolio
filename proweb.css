@@ -970,7 +970,7 @@ h2.Engine {
   }
   .work-content,
   .achieve-content {
-    font-size: 7px;
+    font-size: 9px;
   }
   .cert-tag-n {
     flex-direction: column;
@@ -1005,10 +1005,14 @@ h2.Engine {
   vertical-align: bottom;
   margin-top: auto;
 }
+b{
+  font-weight: 900;
+}
 .work-content {
   color: var(--work-content);
   font-size: 14px;
   font-family: "Jetbrains Mono", monospace;
+  font-weight: 300;
 }
 .achieve-content {
   color: var(--achieve-content);

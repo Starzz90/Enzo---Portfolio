@@ -82,7 +82,7 @@ html[data-theme="light"] {
   --project-card: rgba(255, 255, 255, 0.9);
   --sidebar: rgba(213, 213, 213, 0.78);
   --work-content: #0A0A0A;
-  --achieve-content: #66615a;
+  --achieve-content: #54514d;
   --below: #e9e3d9;
   --achieve: #eeebdd;
   --gradient: #fffdf8;
@@ -1012,7 +1012,7 @@ b{
   color: var(--work-content);
   font-size: 14px;
   font-family: "Jetbrains Mono", monospace;
-  font-weight: 300;
+  font-weight: 400;
 }
 .achieve-content {
   color: var(--achieve-content);

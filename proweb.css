@@ -459,6 +459,7 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon {
   margin-bottom: 5px;
   margin-left: 0;
   margin-right: 0;
+  gap: 10px;
 }
 .double-column-auto:has(> .stack) {
   align-items: center;
